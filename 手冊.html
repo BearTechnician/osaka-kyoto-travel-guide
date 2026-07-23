@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>福岡・由布院・別府・柳川 七天六夜手冊</title>
+<style>
+  @page { size: A4; margin: 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: #faf6ef;
+    color: #2b2b2b;
+    margin: 0;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 36px;
+  }
+  .cover {
+    background: linear-gradient(160deg, #b32c2c 0%, #8c1f1f 100%);
+    color: #fff;
+    padding: 90px 40px 70px;
+    text-align: center;
+    border-bottom: 10px solid #d9b66b;
+    page-break-after: always;
+  }
+  .cover .kicker {
+    letter-spacing: 4px;
+    font-size: 13px;
+    opacity: .85;
+    margin-bottom: 18px;
+  }
+  .cover h1 {
+    font-size: 38px;
+    margin: 0 0 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .cover .sub {
+    font-size: 17px;
+    opacity: .92;
+    margin-bottom: 30px;
+  }
+  .cover .dates {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 36px;
+    letter-spacing: 1px;
+  }
+  .cover .badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+  .cover .footer-note {
+    margin-top: 60px;
+    font-size: 12px;
+    opacity: .7;
+  }
+  .alert-banner {
+    background: #fff3da;
+    border: 1px solid #d9b66b;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    margin-bottom: 10px;
+  }
+  .alert-banner strong { color: #8c1f1f; }
+
+  h2.section-title {
+    font-size: 22px;
+    color: #8c1f1f;
+    border-left: 6px solid #d9b66b;
+    padding-left: 14px;
+    margin: 46px 0 18px;
+  }
+  h3.day-title {
+    font-size: 17px;
+    color: #fff;
+    background: #8c1f1f;
+    padding: 10px 16px;
+    border-radius: 6px 6px 0 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  h3.day-title .date-tag {
+    font-size: 13px;
+    opacity: .85;
+    align-self: center;
+  }
+  .day-card {
+    border: 1px solid #e3d6c0;
+    border-radius: 6px;
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+    overflow: hidden;
+    background: #fff;
+  }
+  .day-card .day-body { padding: 18px 20px; }
+  .day-card .tag {
+    display: inline-block;
+    font-size: 11px;
+    color: #8c1f1f;
+    background: #f6e9d8;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+  }
+  .day-card ul { margin: 8px 0 0; padding-left: 20px; }
+  .day-card li { margin-bottom: 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 26px;
+    font-size: 13.5px;
+  }
+  th, td {
+    border: 1px solid #e3d6c0;
+    padding: 9px 12px;
+    text-align: left;
+  }
+  th {
+    background: #8c1f1f;
+    color: #fff;
+    font-weight: 600;
+  }
+  tr:nth-child(even) td { background: #fbf3e7; }
+  .total-row td {
+    font-weight: 700;
+    background: #f6e9d8 !important;
+    color: #8c1f1f;
+  }
+
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 0 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .timeline .step {
+    flex: 1;
+    min-width: 95px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #e3d6c0;
+    border-top: 4px solid #d9b66b;
+    border-radius: 4px;
+    padding: 10px 5px;
+    font-size: 12px;
+  }
+  .timeline .step .d { color: #8c1f1f; font-weight: 700; font-size: 13px; }
+  .timeline .step .dt { color: #9a8a6f; font-size: 10.5px; margin-bottom: 2px; }
+
+  .checklist { columns: 2; column-gap: 30px; margin-top: 10px; }
+  .checklist .group { margin-bottom: 16px; break-inside: avoid; }
+  .checklist .group h4 {
+    font-size: 14px;
+    color: #8c1f1f;
+    margin: 0 0 6px;
+    border-bottom: 1px solid #e3d6c0;
+    padding-bottom: 4px;
+  }
+  .checklist label { display: block; font-size: 13.5px; margin-bottom: 5px; }
+  .checklist input { margin-right: 6px; }
+
+  .callout {
+    background: #f6e9d8;
+    border-left: 5px solid #d9b66b;
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    margin: 16px 0;
+  }
+  .callout strong { color: #8c1f1f; }
+
+  .grid-2 { display: flex; gap: 20px; flex-wrap: wrap; }
+  .grid-2 .col { flex: 1; min-width: 260px; }
+
+  .footer-page {
+    text-align: center;
+    font-size: 12px;
+    color: #9a8a6f;
+    margin-top: 50px;
+  }
+
+  @media print {
+    .page { padding: 0; }
+    .day-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">LIFEOS TRAVEL HANDBOOK</div>
+  <h1>福岡・由布院・別府・柳川</h1>
+  <div class="sub">陪媽媽的第一次出國旅行　｜　七天六夜自由行手冊</div>
+  <div class="dates">2026 / 7 / 26（日） → 8 / 1（六）</div>
+  <div class="badge-row">
+    <div class="badge">九州・福岡</div>
+    <div class="badge">溫泉・由布院</div>
+    <div class="badge">地獄巡禮・別府</div>
+    <div class="badge">水鄉・柳川</div>
+    <div class="badge">2 人　7 天 6 夜</div>
+  </div>
+  <div class="footer-note">更新日期 2026.06.22　｜　機票飯店尚未訂，暑假旺季建議盡快下訂</div>
+</div>
+
+<div class="page">
+
+  <div class="alert-banner"><strong>暑假旺季提醒：</strong>7/26～8/1 是日本中小學暑假期間，機票與由布院／別府人氣溫泉旅館價格較高，現在（6/22）距出發約 5 週，建議本週內就開始比價下訂。</div>
+
+  <h2 class="section-title">行程總覽</h2>
+  <div class="timeline">
+    <div class="step"><div class="dt">7/26 日</div><div class="d">Day 1</div>抵達福岡<br>入住博多</div>
+    <div class="step"><div class="dt">7/27 一</div><div class="d">Day 2</div>太宰府<br>大濠公園</div>
+    <div class="step"><div class="dt">7/28 二</div><div class="d">Day 3</div>由布院之森<br>溫泉一泊二食</div>
+    <div class="step"><div class="dt">7/29 三</div><div class="d">Day 4</div>別府地獄巡禮<br>溫泉一泊二食</div>
+    <div class="step"><div class="dt">7/30 四</div><div class="d">Day 5</div>別府悠閒<br>返回博多</div>
+    <div class="step"><div class="dt">7/31 五</div><div class="d">Day 6</div>柳川遊船<br>鰻魚飯</div>
+    <div class="step"><div class="dt">8/1 六</div><div class="d">Day 7</div>市區採買<br>機場返台</div>
+  </div>
+  <div class="callout">
+    <strong>設計邏輯：</strong>行李只搬 3 次（博多 → 由布院 → 別府 → 博多），由布院、別府各安排一晚「一泊二食」溫泉旅館，柳川一日遊全程坐船幾乎不用走路。<strong>小技巧：</strong>博多兩段住宿訂同一家飯店，出發去由布院前把大行李箱寄放在櫃台，媽媽只需帶小包過夜。
+  </div>
+
+  <h2 class="section-title">每日行程</h2>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 1　台北 → 福岡，輕鬆暖身</span><span class="date-tag">7/26（日）</span></h3>
+    <div class="day-body">
+      <span class="tag">移動日</span><span class="tag">體力：低</span>
+      <ul>
+        <li>桃園機場起飛，飛行約 1.5～2 小時抵達福岡機場</li>
+        <li>地下鐵空港線直達博多站（車程約 5～11 分鐘）</li>
+        <li>Check-in 博多市區飯店，稍作休息</li>
+        <li>傍晚：博多運河城散步、看水舞秀；晚餐拉麵名店或中洲屋台</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 2　太宰府祈福，福岡市區慢遊</span><span class="date-tag">7/27（一）</span></h3>
+    <div class="day-body">
+      <span class="tag">步行較多</span><span class="tag">體力：中</span>
+      <ul>
+        <li>上午：太宰府天滿宮（本殿免費），參道吃梅枝餅</li>
+        <li>下午：大濠公園環湖散步，體力夠可加碼福岡塔</li>
+        <li>晚餐：天神地下街，水炊き鍋或もつ鍋</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 3　觀光列車到由布院，入住溫泉旅館</span><span class="date-tag">7/28（二）</span></h3>
+    <div class="day-body">
+      <span class="tag">需提早訂票</span><span class="tag">體力：低～中</span>
+      <ul>
+        <li>博多站搭「由布院之森」觀光列車（約 2 小時 15 分，指定席）</li>
+        <li>湯之坪街道散步、金鱗湖畔休息拍照</li>
+        <li>較早 check-in 溫泉旅館，泡湯放鬆，晚餐一泊二食會席料理</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 4　由布院 → 別府地獄巡禮，住別府</span><span class="date-tag">7/29（三）</span></h3>
+    <div class="day-body">
+      <span class="tag">新增過夜</span><span class="tag">體力：中</span>
+      <ul>
+        <li>搭巴士前往別府（約 1 小時）</li>
+        <li>地獄巡禮套票挑 3～4 個代表性景點即可，順道泡免費足湯</li>
+        <li>午餐可體驗「地獄蒸し」；下午 check-in 別府溫泉旅館，享用一泊二食晚餐</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 5　別府悠閒，返回福岡</span><span class="date-tag">7/30（四）</span></h3>
+    <div class="day-body">
+      <span class="tag">彈性安排</span><span class="tag">體力：低</span>
+      <ul>
+        <li>上午二選一：高崎山自然動物園看野生猴子，或留在飯店延長泡湯</li>
+        <li>中午退房，搭高速巴士返回福岡（約 2 小時），重新入住博多飯店</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 6　柳川一日遊，全程坐船最省腳力</span><span class="date-tag">7/31（五）</span></h3>
+    <div class="day-body">
+      <span class="tag">體力負擔最小</span><span class="tag">體力：低</span>
+      <ul>
+        <li>西鐵電車前往柳川（約 1 小時內）</li>
+        <li>搭乘「どんこ舟」遊船約 70 分鐘，全程坐著、船夫沿途吟唱民謠</li>
+        <li>午餐：柳川名物蒸籠鰻魚飯；下午城下町散步或提早回福岡休息</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 7　採買伴手禮，賦歸</span><span class="date-tag">8/1（六）</span></h3>
+    <div class="day-body">
+      <span class="tag">輕鬆收尾</span><span class="tag">體力：低</span>
+      <ul>
+        <li>上午：博多運河城、今泉一帶採買伴手禮（明太子、ひよ子等）</li>
+        <li>中午後前往福岡機場，搭機返回台北</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">機票建議</h2>
+  <table>
+    <tr><th>類型</th><th>航空公司</th><th>來回參考價／人</th><th>特點</th></tr>
+    <tr><td>傳統航空（推薦）</td><td>中華航空・長榮航空・星宇航空</td><td>NT$15,000～23,000</td><td>含行李餐食選位，較適合長輩</td></tr>
+    <tr><td>廉價航空</td><td>台灣虎航</td><td>NT$8,000～13,000</td><td>較便宜但行李選位需加價</td></tr>
+  </table>
+  <div class="callout">暑假票價會持續上漲，建議本週內到 Skyscanner／Trip.com／易遊網／航空公司官網輸入「7/26 出發、8/1 回程」直接比價下訂。</div>
+
+  <h2 class="section-title">住宿建議</h2>
+  <table>
+    <tr><th>階段</th><th>區域</th><th>名稱範例</th><th>參考價／晚（雙人房）</th></tr>
+    <tr><td>Day1-2、5-6（4 晚）</td><td>博多站周邊</td><td>大和ROYNET（福岡冷泉）・Miyako Hotel Hakata</td><td>NT$3,000～4,500</td></tr>
+    <tr><td>Day3（1 晚）</td><td>由布院溫泉</td><td>由布院Ubl酒店・雅格拉酒店・由布院別邸樹</td><td>一泊二食 NT$10,000～15,000</td></tr>
+    <tr><td>Day4（1 晚）</td><td>別府溫泉</td><td>別府龜之井飯店・杉乃井飯店</td><td>一泊二食 NT$8,000～14,000</td></tr>
+  </table>
+  <div class="callout">博多兩段建議訂同一家方便寄放行李；由布院、別府人氣旅館暑假很快滿房，<strong>優先訂這兩晚</strong>。可在 Booking.com／Agoda／樂天旅遊／じゃらん net 搜尋上列飯店名稱＋輸入對應日期查即時房價。</div>
+
+  <h2 class="section-title">交通與票價一覽</h2>
+  <table>
+    <tr><th>交通項目</th><th>方式</th><th>票價（日圓／人）</th></tr>
+    <tr><td>機場 → 博多</td><td>地下鐵空港線</td><td>約 ¥260</td></tr>
+    <tr><td>福岡市內單日</td><td>地下鐵一日券</td><td>¥640</td></tr>
+    <tr><td>博多 → 太宰府</td><td>西鐵電車／巴士旅人號</td><td>¥420 ／ ¥700</td></tr>
+    <tr><td>博多 → 由布院</td><td>由布院之森（含劃位）</td><td>¥7,630</td></tr>
+    <tr><td>由布院 → 別府</td><td>巴士</td><td>約 ¥900～1,300</td></tr>
+    <tr><td>別府 → 福岡</td><td>高速巴士</td><td>約 ¥3,250</td></tr>
+    <tr><td>博多 → 柳川</td><td>西鐵電車</td><td>約 ¥850</td></tr>
+    <tr><td>柳川遊船</td><td>どんこ舟（約 70 分）</td><td>¥1,800</td></tr>
+    <tr><td>高崎山自然動物園（選擇性）</td><td>Monkey・Marine 套票</td><td>¥2,900</td></tr>
+  </table>
+  <div class="callout">只在福岡近郊活動，<strong>不需要購買 JR 九州周遊券</strong>。由布院之森全車指定席，JR 九州約於搭乘日前 1 個月開賣，現在很接近開賣時間，請密切關注盡快搶訂。</div>
+
+  <h2 class="section-title">費用總覽（2 人，7 天 6 夜，暑假旺季）</h2>
+  <table>
+    <tr><th>項目</th><th>金額（NT$，2 人合計）</th><th>說明</th></tr>
+    <tr><td>來回機票</td><td>24,000～36,000</td><td>傳統航空較貴但較適合長輩</td></tr>
+    <tr><td>住宿（6 晚）</td><td>30,000～42,000</td><td>博多 4 晚＋由布院／別府一泊二食各 1 晚</td></tr>
+    <tr><td>城際＋市內交通</td><td>7,500～9,500</td><td>含別府過夜接駁、柳川來回交通與船票</td></tr>
+    <tr><td>景點門票</td><td>2,000～3,000</td><td>地獄巡禮套票＋柳川遊船為大宗</td></tr>
+    <tr><td>餐飲</td><td>9,000～12,000</td><td>已扣除含在住宿裡的兩餐</td></tr>
+    <tr><td>網路（eSIM，7 天）</td><td>800～1,100</td><td>兩人各一張</td></tr>
+    <tr><td>旅遊平安保險（7 天）</td><td>800～1,200</td><td>兩人合計</td></tr>
+    <tr><td>伴手禮預留</td><td>3,000～5,000</td><td>明太子、零食、藥妝等</td></tr>
+    <tr class="total-row"><td>總計（2 人）</td><td>約 77,000～110,000</td><td>平均每人 NT$38,500～55,000</td></tr>
+  </table>
+  <div class="callout">匯率以 <strong>1 日圓 ≈ NT$0.2</strong> 估算。這是暑假旺季價格，比原本 5 天淡季估算高出不少，主因是機票、人氣溫泉旅館暑假房價，以及多兩天的花費。台灣護照赴日 90 天內觀光免簽。</div>
+
+  <h2 class="section-title">行前準備清單（現在最優先：訂機票＋訂房）</h2>
+  <div class="checklist">
+    <div class="group">
+      <h4>最優先（本週內）</h4>
+      <label><input type="checkbox">比價並訂機票</label>
+      <label><input type="checkbox">訂博多飯店 4 晚（同一家）</label>
+      <label><input type="checkbox">訂由布院溫泉旅館 1 晚</label>
+      <label><input type="checkbox">訂別府溫泉旅館 1 晚</label>
+      <label><input type="checkbox">關注並搶訂由布院之森車票</label>
+    </div>
+    <div class="group">
+      <h4>證件與財務</h4>
+      <label><input type="checkbox">護照效期 6 個月以上</label>
+      <label><input type="checkbox">護照影本＋大頭照備用</label>
+      <label><input type="checkbox">現金＋海外友善信用卡</label>
+    </div>
+    <div class="group">
+      <h4>通訊與設備</h4>
+      <label><input type="checkbox">出國前裝好 eSIM 並測試</label>
+      <label><input type="checkbox">行動電源</label>
+    </div>
+    <div class="group">
+      <h4>健康與保險</h4>
+      <label><input type="checkbox">投保旅遊平安險（7 天）</label>
+      <label><input type="checkbox">媽媽常備藥備足＋備用份</label>
+      <label><input type="checkbox">防曬、遮陽帽、隨身小風扇（暑假炎熱）</label>
+    </div>
+    <div class="group">
+      <h4>其他票券</h4>
+      <label><input type="checkbox">別府地獄巡禮套票</label>
+      <label><input type="checkbox">柳川遊船票</label>
+    </div>
+    <div class="group">
+      <h4>行李與衣物</h4>
+      <label><input type="checkbox">夏季輕薄衣物＋一件薄外套</label>
+      <label><input type="checkbox">好走的鞋</label>
+      <label><input type="checkbox">媽媽的隨身小包（證件／藥品）</label>
+    </div>
+  </div>
+
+  <h2 class="section-title">給媽媽同行的提醒</h2>
+  <div class="grid-2">
+    <div class="col callout">太宰府、由布院兩天步行量較大，但路面平整，隨時可找店家坐下休息。</div>
+    <div class="col callout">柳川一日遊全程坐船，是整趟行程體力負擔最小的一天，安排在第 6 天剛好緩一緩。</div>
+    <div class="col callout">溫泉鄉記得穿浴衣方便，若有心血管疾病或剛吃飽，提醒避免立刻泡湯。</div>
+    <div class="col callout">七、八月日本悶熱，戶外行程盡量安排上午或傍晚，正中午多選室內活動。</div>
+  </div>
+
+  <div class="footer-page">LifeOS Travel Handbook ｜ 福岡・由布院・別府・柳川 七天六夜 ｜ 2026/7/26 - 8/1 ｜ 内容如有調整以最新攻略文件為準</div>
+</div>
+
+</body>
+</html>

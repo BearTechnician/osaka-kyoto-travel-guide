@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>大阪・京都 五天四夜手冊｜超詳細時間表版</title>
+<style>
+  @page { size: 9.375in 260in; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: #f7f4ee;
+    color: #2b2b2b;
+    margin: 0;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 36px 50px;
+  }
+  .cover {
+    background: linear-gradient(160deg, #1f4e8c 0%, #15315c 100%);
+    color: #fff;
+    padding: 48px 40px;
+    text-align: center;
+    border-bottom: 10px solid #c9a14a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .cover .kicker { letter-spacing: 4px; font-size: 12px; opacity: .8; margin-bottom: 16px; }
+  .cover h1 { font-size: 40px; margin: 0 0 10px; font-weight: 700; letter-spacing: 2px; }
+  .cover .sub { font-size: 15px; opacity: .88; margin-bottom: 28px; }
+  .cover .dates { font-size: 22px; font-weight: 700; margin-bottom: 32px; }
+  .cover .badge-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .badge { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.45); border-radius: 999px; padding: 7px 16px; font-size: 12.5px; }
+  .cover .footer-note { margin-top: 50px; font-size: 11.5px; opacity: .65; }
+
+  .alert-banner { background: #fdf0df; border: 1px solid #c9a14a; border-radius: 6px; padding: 14px 18px; font-size: 13.5px; margin-bottom: 12px; }
+  .alert-banner strong { color: #15315c; }
+
+  h2.section-title { font-size: 21px; color: #15315c; border-left: 6px solid #c9a14a; padding-left: 14px; margin: 32px 0 14px; }
+
+  /* Day card */
+  .day-card { border: 1px solid #dcd3c0; border-radius: 8px; margin-bottom: 20px; overflow: hidden; background: #fff; }
+  .day-card-header {
+    background: #15315c; color: #fff; padding: 12px 20px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;
+  }
+  .day-card-header .day-name { font-size: 18px; font-weight: 700; }
+  .day-card-header .day-date { font-size: 13px; opacity: .85; }
+  .day-card-body { padding: 16px 20px 20px; }
+
+  /* Timeline rows */
+  .tl { border-left: 3px solid #c9a14a; margin: 4px 0 0; padding-left: 0; list-style: none; }
+  .tl li { display: flex; gap: 0; margin-bottom: 2px; }
+  .tl .tt { min-width: 54px; font-weight: 700; font-size: 13px; color: #15315c; background: #e9eef6; padding: 5px 8px 5px 10px; border-left: 3px solid #c9a14a; margin-left: -3px; margin-right: 12px; flex-shrink: 0; }
+  .tl .tc { padding: 5px 0; font-size: 13.5px; line-height: 1.6; }
+  .tl .tc .label { display: inline-block; background: #15315c; color: #fff; font-size: 11px; border-radius: 3px; padding: 1px 7px; margin-right: 5px; vertical-align: middle; }
+  .tl .tc .label.rest { background: #2c7a7a; }
+  .tl .tc .label.eat { background: #8b3a00; }
+  .tl .tc .label.train { background: #5c3d8f; }
+  .tl .tc .label.shop { background: #3d6e2a; }
+  .tl .tc .note { display: block; font-size: 12px; color: #666; margin-top: 2px; margin-left: 2px; }
+
+  /* Train route box */
+  .route-box { background: #f0edf8; border: 1px solid #b8aad4; border-radius: 6px; padding: 12px 16px; margin: 10px 0; font-size: 13px; }
+  .route-box .route-title { font-weight: 700; color: #5c3d8f; margin-bottom: 8px; }
+  .route-step { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 5px; }
+  .route-step .r-icon { min-width: 22px; text-align: center; font-size: 14px; margin-top: 1px; }
+  .route-step .r-text { font-size: 13px; line-height: 1.55; }
+  .route-step .r-text strong { color: #15315c; }
+  .route-step .r-fare { font-size: 12px; color: #666; margin-left: 4px; }
+
+  /* Restaurant box */
+  .rest-box { background: #fff8f0; border: 1px solid #e8c99b; border-radius: 6px; padding: 12px 16px; margin: 10px 0; }
+  .rest-box .rest-title { font-weight: 700; color: #8b3a00; font-size: 14px; margin-bottom: 5px; }
+  .rest-box .rest-meta { font-size: 12.5px; color: #555; line-height: 1.7; }
+  .rest-box .rest-meta span { margin-right: 12px; }
+
+  /* Callout */
+  .callout { background: #e9eef6; border-left: 5px solid #c9a14a; padding: 12px 18px; border-radius: 4px; font-size: 13.5px; margin: 10px 0; }
+  .callout strong { color: #15315c; }
+  .callout.warn { background: #fff3e0; border-left-color: #e07000; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; font-size: 13px; }
+  th, td { border: 1px solid #dcd3c0; padding: 9px 12px; text-align: left; }
+  th { background: #15315c; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #f3f0e8; }
+  .total-row td { font-weight: 700; background: #e9eef6 !important; color: #15315c; }
+
+  /* Summary timeline bar */
+  .overview-bar { display: flex; justify-content: space-between; margin: 14px 0 8px; flex-wrap: wrap; gap: 8px; }
+  .overview-step { flex: 1; min-width: 110px; text-align: center; background: #fff; border: 1px solid #dcd3c0; border-top: 4px solid #c9a14a; border-radius: 4px; padding: 10px 6px; font-size: 12px; }
+  .overview-step .d { color: #15315c; font-weight: 700; font-size: 15px; }
+  .overview-step .dt { color: #93897a; font-size: 11px; margin-bottom: 2px; }
+
+  .tag-row { margin-bottom: 10px; }
+  .tag { display: inline-block; font-size: 11px; color: #15315c; background: #e9eef6; border-radius: 4px; padding: 2px 9px; margin-right: 5px; margin-bottom: 4px; }
+  .tag.warn { background: #fff3e0; color: #8b3a00; }
+
+  .tip { font-size: 12.5px; color: #555; background: #f9f6f0; border: 1px dashed #ccc; border-radius: 5px; padding: 8px 14px; margin: 8px 0; }
+
+  .no-break { page-break-inside: avoid; }
+
+  .footer-page { text-align: center; font-size: 11.5px; color: #93897a; margin-top: 50px; }
+
+  h3 { color: #15315c; font-size: 15px; margin: 18px 0 8px; }
+
+  /* Google Maps 超連結 */
+  a.ml { color: #15315c; text-decoration: none; border-bottom: 1px dashed #c9a14a; font-weight: 600; }
+  a.ml:hover { color: #c9772e; border-bottom-color: #c9772e; }
+  a.ml .ext { font-size: 10px; opacity: .65; margin-left: 1px; vertical-align: super; }
+
+  /* 景點橫向照片條（放在每天頂部） */
+  .photo-strip { display: flex; gap: 5px; margin: 0 0 16px; border-radius: 6px; overflow: hidden; height: 115px; }
+  .ps-item { flex: 1; position: relative; display: block; text-decoration: none; overflow: hidden; min-width: 0; }
+  .ps-item img { width: 100%; height: 115px; object-fit: cover; display: block; transition: transform 0.25s, opacity 0.2s; }
+  .ps-item:hover img { transform: scale(1.05); opacity: 0.88; }
+  .ps-cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 6px 6px; background: linear-gradient(to bottom, transparent, rgba(15,35,65,0.80)); color: #fff; font-size: 11px; font-weight: 700; text-align: center; letter-spacing: 0.3px; }
+  .photo-credit { font-size: 10px; color: #bbb; text-align: right; margin: -10px 0 12px; }
+
+  /* 餐廳 map 連結特殊樣式 */
+  a.rest-link { color: #8b3a00; font-weight: 700; text-decoration: none; border-bottom: 1px dashed #e8c99b; }
+  a.rest-link:hover { color: #c9772e; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">LIFEOS TRAVEL HANDBOOK — 超詳細版</div>
+  <h1>大阪・京都</h1>
+  <div class="sub">五天四夜｜逐時時間表・指定餐廳・電車站名全攻略</div>
+  <div class="dates">2026 / 7 / 25（六）→ 7 / 29（三）</div>
+  <div class="badge-row">
+    <div class="badge">大阪城・古城</div>
+    <div class="badge">神社・寺院</div>
+    <div class="badge">嵐山竹林</div>
+    <div class="badge">東山祇園・伏見稻荷</div>
+    <div class="badge">2 人　享受型</div>
+  </div>
+  <div class="footer-note">更新日期 2026.06.28　｜　v7 超詳細時間表版　｜　機票（BR132／BR129）與飯店（FDS ZEAL）皆已確定</div>
+</div>
+
+<div class="page">
+
+  <div class="alert-banner">
+    <strong>確定資訊：</strong>
+    去程 BR132（長榮）桃園 T2 08:20 起飛 → 關西機場 12:10 抵達。
+    回程 BR129（長榮）關西機場 18:30 起飛 → 桃園 T2 20:30 抵達。
+    住宿 <a class="ml" href="https://www.google.com/maps/search/?api=1&query=FDS+ZEAL+2-9-23+Sakuragawa+Naniwa+Osaka" target="_blank" rel="noopener">FDS ZEAL<span class="ext">↗</span></a>（大阪市浪速区桜川2-9-23）4 晚，2 人合計 NT$7,189。
+    全程以大阪為基地，不用搬行李。
+  </div>
+
+  <h2 class="section-title">行程總覽</h2>
+  <div class="overview-bar">
+    <div class="overview-step"><div class="dt">7/25 六</div><div class="d">Day 1</div>桃園起飛<br>抵達大阪<br>道頓堀晚餐</div>
+    <div class="overview-step"><div class="dt">7/26 日</div><div class="d">Day 2</div>京都・嵐山<br>竹林・渡月橋<br>天龍寺</div>
+    <div class="overview-step"><div class="dt">7/27 一</div><div class="d">Day 3</div>京都・伏見稻荷<br>清水寺・東山<br>祇園花見小路</div>
+    <div class="overview-step"><div class="dt">7/28 二</div><div class="d">Day 4</div>大阪城<br>中之島・四天王寺<br>住吉大社</div>
+    <div class="overview-step"><div class="dt">7/29 三</div><div class="d">Day 5</div>黒門市場早食<br>採買伴手禮<br>BR129 回桃園</div>
+  </div>
+
+  <div class="callout">
+    <strong>住宿 FDS ZEAL 交通提醒：</strong>飯店在桜川，到難波有兩種方式：① 步行 12-15 分鐘直達道頓堀周邊 ② 走 5 分鐘到桜川駅，搭阪神なんば線 1 站（¥170，約 2 分）到大阪難波駅，再步行到各搭乘點。下方行程統一用方式②描述。
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- DAY 1 -->
+  <!-- ============================================================ -->
+  <div class="day-card no-break">
+    <div class="day-card-header">
+      <div class="day-name">Day 1　BR132 抵達大阪・道頓堀初探</div>
+      <div class="day-date">7 月 25 日（六）</div>
+    </div>
+    <div class="day-card-body">
+      <div class="photo-strip">
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka" target="_blank" rel="noopener"><img src="images/dotonbori.jpg" alt="道頓堀"><div class="ps-cap">道頓堀・グリコ看板 ↗</div></a>
+      </div>
+      <div class="tag-row">
+        <span class="tag">長榮 BR132</span>
+        <span class="tag">南海電鐵 Rapi:t</span>
+        <span class="tag">道頓堀</span>
+        <span class="tag warn">炎夏補水！下午戶外活動</span>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">05:30</div>
+          <div class="tc"><span class="label">出發前</span> 起床、最後確認行李，建議前一晚打包完畢</div>
+        </li>
+        <li>
+          <div class="tt">06:30</div>
+          <div class="tc"><span class="label">機場</span> 出發前往桃園國際機場 Terminal 2（長榮航空 BR132 在 T2）<br>
+          <span class="note">建議搭機場巴士或計程車，距起飛前約 1h50min 抵達機場即可</span></div>
+        </li>
+        <li>
+          <div class="tt">07:00</div>
+          <div class="tc"><span class="label">機場</span> 抵達 T2，找長榮航空報到櫃台（BR132）、託運行李、領登機證</div>
+        </li>
+        <li>
+          <div class="tt">07:30</div>
+          <div class="tc"><span class="label">機場</span> 通過移民署出境查驗＋安檢，前往登機門<br>
+          <span class="note">T2 安檢有時有隊伍，至少留 30 分鐘</span></div>
+        </li>
+        <li>
+          <div class="tt">08:20</div>
+          <div class="tc"><span class="label">飛機</span> BR132 準時起飛，飛行約 2h50min<br>
+          <span class="note">長榮提供餐食、毛毯，機上可稍補眠</span></div>
+        </li>
+        <li>
+          <div class="tt">12:10</div>
+          <div class="tc"><span class="label">KIX</span> 抵達關西機場（KIX），入境審查（Visit Japan Web 事先填好省時）、提領行李</div>
+        </li>
+        <li>
+          <div class="tt">13:00</div>
+          <div class="tc"><span class="label train">電車</span> 前往南海電鐵月台，搭 <strong>特急 Rapi:t（ラピート）</strong><br>
+          <span class="note">自動售票機購買或 IC Card (ICOCA) 感應</span></div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 关西空港 → 難波（南海電鐵）</div>
+        <div class="route-step"><div class="r-icon">🚉</div><div class="r-text">出站後跟著「南海電鐵」指標，搭電梯到 2F 月台</div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>特急 Rapi:t α／β</strong>：関西空港駅 → 南海難波駅<span class="r-fare">¥1,560/人　約 38 分　全車指定席</span></div></div>
+        <div class="route-step"><div class="r-icon">🚃</div><div class="r-text">一般急行（空港急行）：関西空港駅 → 南海難波駅<span class="r-fare">¥930/人　約 45-50 分　自由席</span></div></div>
+        <div class="route-step"><div class="r-icon">💡</div><div class="r-text">推薦 Rapi:t：行李多、第一天抵達，省 10 分鐘且有指定座位較輕鬆</div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">13:40</div>
+          <div class="tc"><span class="label train">電車</span> 抵達 南海難波駅（なんば）</div>
+        </li>
+        <li>
+          <div class="tt">13:45</div>
+          <div class="tc"><span class="label train">電車</span> 步行 5 分 → 大阪難波駅（阪神なんば線）→ 搭 1 站 → 桜川駅<br>
+          <span class="note">阪神なんば線：大阪難波 → 桜川，¥170，約 2 分</span></div>
+        </li>
+        <li>
+          <div class="tt">14:00</div>
+          <div class="tc"><span class="label rest">入住</span> 桜川駅步行 3 分 → <strong>FDS ZEAL</strong>（大阪市浪速区桜川2-9-23）辦理 check-in，放行李</div>
+        </li>
+        <li>
+          <div class="tt">14:30</div>
+          <div class="tc"><span class="label rest">休息</span> 洗把臉、換夏季衣服，補水，準備出門</div>
+        </li>
+        <li>
+          <div class="tt">15:00</div>
+          <div class="tc"><span class="label train">步行</span> 桜川駅搭阪神 1 站 → 大阪難波（¥170）→ 步行 8 分 → 道頓堀</div>
+        </li>
+        <li>
+          <div class="tt">15:15</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka" target="_blank" rel="noopener"><strong>道頓堀</strong><span class="ext">↗</span></a>：固力果跑者 LED 看板前拍照（道頓堀橋上最佳角度）</div>
+        </li>
+        <li>
+          <div class="tt">15:30</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+Shopping+Arcade+Osaka" target="_blank" rel="noopener"><strong>心齋橋筋商店街</strong><span class="ext">↗</span></a>：有屋頂的長形商店街，夏天避暑又好逛<br>
+          <span class="note">藥妝店：マツモトキヨシ・コクミン・サンドラッグ 林立，可先記位置明日再買</span></div>
+        </li>
+        <li>
+          <div class="tt">17:30</div>
+          <div class="tc"><span class="label eat">晚餐</span> 前往 <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Mizuno+Okonomiyaki+Dotonbori+1-4-15+Osaka" target="_blank" rel="noopener"><strong>美津の（Mizuno）</strong><span class="ext">↗</span></a> 排隊，建議 17:30 前到可減少等候</div>
+        </li>
+      </ul>
+
+      <div class="rest-box">
+        <div class="rest-title">🍳 晚餐｜<a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Mizuno+Okonomiyaki+Dotonbori+Osaka" target="_blank" rel="noopener">美津の（Mizuno）大阪燒 ↗</a></div>
+        <div class="rest-meta">
+          <span>📍 大阪市中央区道頓堀1-4-15</span>
+          <span>⏰ 11:00-22:00（無定休）</span><br>
+          <span>💴 ¥1,200-1,800/人（大阪燒＋生啤）</span>
+          <span>⭐ 創業 1945 年，道頓堀最老牌大阪燒</span><br>
+          <span>📌 排隊等候約 20-40 分，鐵板現做，招牌是「山芋大阪燒」</span>
+        </div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">19:30</div>
+          <div class="tc"><span class="label shop">夜逛</span> 道頓堀散步，試吃 <strong>たこ焼き</strong>：<a class="ml" href="https://www.google.com/maps/search/?api=1&query=Kukuru+Takoyaki+Dotonbori+Osaka" target="_blank" rel="noopener">くくる道頓堀本店<span class="ext">↗</span></a>（道頓堀1-10-5，¥900 8個）</div>
+        </li>
+        <li>
+          <div class="tt">20:30</div>
+          <div class="tc"><span class="label rest">回飯店</span> 搭阪神なんば線：大阪難波 → 桜川（¥170，2分）→ 步行 3 分回飯店<br>
+          <span class="note">明天 08:00 出發嵐山，需早起，今晚早點休息</span></div>
+        </li>
+      </ul>
+
+      <div class="tip">💡 <strong>第一天購物小貼士：</strong>7-Eleven / FamilyMart 在難波周邊密集，可買隔天早餐食材（飯店有廚房）、補飲用水、買 ICOCA 交通 IC 卡（¥2,000 含 ¥1,500 餘額＋¥500 押金，後續所有電鐵・巴士都可刷卡）。</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- DAY 2 -->
+  <!-- ============================================================ -->
+  <div class="day-card no-break">
+    <div class="day-card-header">
+      <div class="day-name">Day 2　京都・嵐山｜竹林・渡月橋・天龍寺</div>
+      <div class="day-date">7 月 26 日（日）</div>
+    </div>
+    <div class="day-card-body">
+      <div class="photo-strip">
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Togetsukyo+Bridge+Arashiyama+Kyoto" target="_blank" rel="noopener"><img src="images/arashiyama_view.jpg" alt="渡月橋"><div class="ps-cap">渡月橋・嵐山溪谷 ↗</div></a>
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove+Kyoto" target="_blank" rel="noopener"><img src="images/arashiyama_bamboo.jpg" alt="竹林小徑"><div class="ps-cap">嵐山竹林小徑 ↗</div></a>
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Tenryuji+Temple+Arashiyama+Kyoto" target="_blank" rel="noopener"><img src="images/tenryuji.jpg" alt="天龍寺庭園"><div class="ps-cap">天龍寺・曹源池庭園 ↗</div></a>
+      </div>
+      <div class="tag-row">
+        <span class="tag">阪神なんば線</span>
+        <span class="tag">地下鐵御堂筋線</span>
+        <span class="tag">阪急京都線→嵐山線</span>
+        <span class="tag warn">週日人多，10 點前到竹林最好</span>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">07:00</div>
+          <div class="tc"><span class="label rest">早餐</span> 飯店廚房簡單早餐 or 便利商店（桜川駅附近有 7-Eleven），輕食即可，午餐在嵐山吃</div>
+        </li>
+        <li>
+          <div class="tt">08:00</div>
+          <div class="tc"><span class="label train">出發</span> 準時出發，今天主要景點 09:00 開始最舒服</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 飯店 → 嵐山（阪神→地下鐵→阪急，約 65 分，¥1,130/人）</div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行 5 分 → <strong>桜川駅</strong></div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>阪神なんば線</strong>：桜川 → 大阪難波<span class="r-fare">¥170　2 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行 8 分 → 大阪メトロ <strong>なんば駅</strong>（御堂筋線ホーム）</div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>御堂筋線</strong>（北行）：なんば → 梅田<span class="r-fare">¥230　7 分　4 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行 5 分 → <strong>阪急 大阪梅田駅</strong>（不同於地下鐵梅田，走地下通道）</div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>阪急京都線 特急</strong>：大阪梅田 → 桂<span class="r-fare">¥510　約 30 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🔄</div><div class="r-text"><strong>桂駅</strong>換乘：阪急嵐山線（站内直接換月台）</div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>阪急嵐山線</strong>：桂 → 嵐山（阪急嵐山駅）<span class="r-fare">¥220　10 分</span></div></div>
+        <div class="route-step"><div class="r-icon">📍</div><div class="r-text">阪急嵐山駅 → 步行 5 分到 <strong>渡月橋</strong></div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">09:00</div>
+          <div class="tc"><span class="label">景點</span> 抵達 <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Togetsukyo+Bridge+Arashiyama+Kyoto" target="_blank" rel="noopener"><strong>嵐山・渡月橋</strong><span class="ext">↗</span></a>，桂川河景，早上人少視野清晰</div>
+        </li>
+        <li>
+          <div class="tt">09:15</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove+Kyoto" target="_blank" rel="noopener"><strong>嵐山竹林小徑（竹林の道）</strong><span class="ext">↗</span></a>：渡月橋步行 7 分可達，建議趁早人少走<br>
+          <span class="note">竹林北端為 <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Nonomiya+Shrine+Arashiyama+Kyoto" target="_blank" rel="noopener">野宮神社<span class="ext">↗</span></a>（免費），參拜可祈求學業與緣份</span></div>
+        </li>
+        <li>
+          <div class="tt">10:15</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Tenryuji+Temple+Arashiyama+Kyoto" target="_blank" rel="noopener"><strong>天龍寺（曹源池庭園）</strong><span class="ext">↗</span></a>：¥500/人（庭園），世界遺產<br>
+          <span class="note">推薦購「庭園＋方丈」票 ¥800，可看室內障壁畫；庭園有大水池映山，早上光線最美</span></div>
+        </li>
+        <li>
+          <div class="tt">11:30</div>
+          <div class="tc"><span class="label eat">午餐</span> 前往午餐，建議 11:30 到以避開 12:00 後尖峰</div>
+        </li>
+      </ul>
+
+      <div class="rest-box">
+        <div class="rest-title">🍜 午餐｜<a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Yoshimura+soba+Kyoto" target="_blank" rel="noopener">嵐山よしむら（嵐山吉村）蕎麥麵 ↗</a></div>
+        <div class="rest-meta">
+          <span>📍 京都市右京区嵯峨天龍寺芒ノ馬場町3（天龍寺北門旁）</span><br>
+          <span>⏰ 11:00-17:00（L.O. 16:30，需排隊）</span>
+          <span>💴 ¥1,300-1,800/人</span><br>
+          <span>⭐ 窗邊座位可直接俯瞰渡月橋，招牌：にしん蕎麦（鯡魚蕎麥麵）</span>
+          <span>📌 等候約 10-30 分，等候時可欣賞桂川河景</span>
+        </div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">12:45</div>
+          <div class="tc"><span class="label">景點</span> <strong>嵯峨野散策</strong>：午餐後沿竹林周邊小徑繼續走<br>
+          <span class="note"><a class="ml" href="https://www.google.com/maps/search/?api=1&query=Jojakko-ji+Temple+Arashiyama+Kyoto" target="_blank" rel="noopener">常寂光寺<span class="ext">↗</span></a>（¥500，紅葉聖地，夏天亦幽靜）/ <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Okochi+Sanso+Villa+Arashiyama+Kyoto" target="_blank" rel="noopener">大河内山荘<span class="ext">↗</span></a>（¥1,000，歷史庭園）</span></div>
+        </li>
+        <li>
+          <div class="tt">14:00</div>
+          <div class="tc"><span class="label shop">甜點</span> 嵐山エリアのアイス・甜點：抹茶霜淇淋、和菓子小店林立，沿途選喜歡的吃</div>
+        </li>
+        <li>
+          <div class="tt">15:00</div>
+          <div class="tc"><span class="label train">回程</span> 前往阪急嵐山駅搭車返回大阪</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 嵐山 → 大阪（阪急→地下鐵→阪神，約 65 分，¥1,130/人）</div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>阪急嵐山線</strong>：嵐山 → 桂<span class="r-fare">¥220　10 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>阪急京都線 特急</strong>：桂 → 大阪梅田<span class="r-fare">¥510　30 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>御堂筋線</strong>（南行）：梅田 → なんば<span class="r-fare">¥230　7 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>阪神なんば線</strong>：大阪難波 → 桜川<span class="r-fare">¥170　2 分</span></div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">16:30</div>
+          <div class="tc"><span class="label rest">休息</span> 回飯店，洗澡休息 1 小時，今天走路量較多</div>
+        </li>
+        <li>
+          <div class="tt">18:00</div>
+          <div class="tc"><span class="label eat">晚餐</span> 前往 <strong>串カツだるま 道頓堀店</strong>（道頓堀1-6-4）</div>
+        </li>
+      </ul>
+
+      <div class="rest-box">
+        <div class="rest-title">🍢 晚餐｜<a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Kushikatsu+Daruma+Dotonbori+Osaka" target="_blank" rel="noopener">串カツだるま（串炸達摩）道頓堀店 ↗</a></div>
+        <div class="rest-meta">
+          <span>📍 大阪市中央区道頓堀1-6-4</span>
+          <span>⏰ 11:00-23:00</span><br>
+          <span>💴 每串 ¥150-350，預算 ¥2,000-2,500/人（含生啤）</span><br>
+          <span>⭐ 大阪串炸老鋪，炸牛肉・蝦・章魚・蔬菜都好吃</span><br>
+          <span>📌 <strong>重要規則：醬料鍋不能沾第二次！</strong>（ソースの二度漬け厳禁）想追加醬料請用高麗菜葉舀取</span>
+        </div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">20:00</div>
+          <div class="tc"><span class="label rest">回飯店</span> 早點回去，明天 Day3 要 06:30 起床，伏見稻荷早去人少</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- DAY 3 -->
+  <!-- ============================================================ -->
+  <div class="day-card no-break">
+    <div class="day-card-header">
+      <div class="day-name">Day 3　京都・伏見稻荷 + 清水寺 + 東山祇園</div>
+      <div class="day-date">7 月 27 日（一）</div>
+    </div>
+    <div class="day-card-body">
+      <div class="photo-strip">
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha+Kyoto" target="_blank" rel="noopener"><img src="images/fushimi_inari.jpg" alt="伏見稻荷"><div class="ps-cap">伏見稻荷・千本鳥居 ↗</div></a>
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Kiyomizudera+Temple+Kyoto" target="_blank" rel="noopener"><img src="images/kiyomizudera.jpg" alt="清水寺"><div class="ps-cap">清水寺・清水舞台 ↗</div></a>
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Hanamikoji+Street+Gion+Kyoto" target="_blank" rel="noopener"><img src="images/gion.jpg" alt="祇園花見小路"><div class="ps-cap">祇園・花見小路 ↗</div></a>
+      </div>
+      <div class="tag-row">
+        <span class="tag">御堂筋線</span>
+        <span class="tag">京阪本線（往伏見稻荷）</span>
+        <span class="tag">京阪（往清水五条）</span>
+        <span class="tag">京阪（回大阪）</span>
+        <span class="tag warn">7:30 前到伏見稻荷 人少景美</span>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">06:30</div>
+          <div class="tc"><span class="label rest">起床</span> 早起！伏見稻荷 08:30 前人最少，千本鳥居隧道不用跟人擠</div>
+        </li>
+        <li>
+          <div class="tt">07:00</div>
+          <div class="tc"><span class="label rest">早餐</span> 便利商店快速解決（onigiri + 飲料），今天行程長</div>
+        </li>
+        <li>
+          <div class="tt">07:30</div>
+          <div class="tc"><span class="label train">出發</span> 前往伏見稻荷大社</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 飯店 → 伏見稻荷大社（阪神→御堂筋線→京阪，約 60 分，¥870/人）</div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text">阪神なんば線：桜川 → 大阪難波<span class="r-fare">¥170　2 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行 8 分 → 大阪メトロ なんば駅</div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>御堂筋線</strong>（北行）：なんば → 淀屋橋<span class="r-fare">¥270　10 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行 3 分 → <strong>京阪 淀屋橋駅</strong>（出地鐵 1 號出口即達）</div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>京阪本線 特急/急行</strong>：淀屋橋 → 伏見稲荷駅<span class="r-fare">¥430　約 32 分</span></div></div>
+        <div class="route-step"><div class="r-icon">📍</div><div class="r-text">伏見稲荷駅下車 → 步行 2 分到 <strong>伏見稻荷大社鳥居入口</strong></div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">08:35</div>
+          <div class="tc"><span class="label">景點</span> 抵達 <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha+Kyoto" target="_blank" rel="noopener"><strong>伏見稻荷大社</strong><span class="ext">↗</span></a>（免費）</div>
+        </li>
+        <li>
+          <div class="tt">08:35</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Senbon+Torii+Fushimi+Inari+Kyoto" target="_blank" rel="noopener"><strong>千本鳥居</strong><span class="ext">↗</span></a>：密集橙紅鳥居隧道，早上光線斜射進來最美<br>
+          <span class="note">下段鳥居 → 奧社（奥の院）約 15 分，還不擠，可放慢欣賞</span></div>
+        </li>
+        <li>
+          <div class="tt">09:15</div>
+          <div class="tc"><span class="label">景點</span> 繼續往上走：<strong>三ツ辻・四ツ辻</strong>（四辻展望點）<br>
+          <span class="note">從奧社到四辻約 30-40 分登山路（坡道，無電梯），可俯瞰大阪市區；想輕鬆的話在奧社折返亦可</span></div>
+        </li>
+        <li>
+          <div class="tt">10:30</div>
+          <div class="tc"><span class="label">景點</span> 從四辻原路回到入口（約 25 分下山），總計伏見稻荷花 2 小時</div>
+        </li>
+        <li>
+          <div class="tt">11:00</div>
+          <div class="tc"><span class="label train">移動</span> 前往清水寺</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 伏見稻荷 → 清水寺（京阪，約 25 分，¥200/人）</div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>京阪本線</strong>（往出町柳方向）：伏見稲荷 → 清水五条<span class="r-fare">¥200　約 6 分　3 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">清水五条駅 2 號出口 → 步行上坡 18 分（茶碗坂路線，途中有賣小物的古趣小店）→ <strong>清水寺</strong></div></div>
+        <div class="route-step"><div class="r-icon">💡</div><div class="r-text">也可搭市巴士 100 號（¥230）在「清水道」下車，但夏天常擁擠；步行上坡路本身是體驗的一部分</div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">11:30</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Kiyomizudera+Temple+Kyoto" target="_blank" rel="noopener"><strong>清水寺</strong><span class="ext">↗</span></a>（¥500/人，開門 06:00）<br>
+          <span class="note">清水舞台（懸空木造舞台，清水三年坂上方）、音羽の滝（音羽之瀧，三道水各有不同祈願）</span></div>
+        </li>
+        <li>
+          <div class="tt">12:30</div>
+          <div class="tc"><span class="label eat">午餐</span> 三年坂・二年坂 石板路段</div>
+        </li>
+      </ul>
+
+      <div class="rest-box">
+        <div class="rest-title">🍱 午餐｜<a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Okutan+Kiyomizu+Yudofu+Kyoto" target="_blank" rel="noopener">奥丹清水（湯豆腐）↗</a> or 三年坂街道</div>
+        <div class="rest-meta">
+          <span>📍 【A 奥丹】京都市東山区清水3-340（清水坂入口）</span><br>
+          <span>💴 奥丹：¥3,850/人（正式一品湯豆腐懷石套餐），1635 年創業日本最古老湯豆腐老鋪</span><br>
+          <span>📍 【B <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Sannenzaka+Kyoto" target="_blank" rel="noopener">三年坂甜食路線 ↗</a>】在坂道各家小店點抹茶甜點＋簡餐，¥800-1,500/人</span><br>
+          <span>📌 時間充裕選奥丹（預算 ¥7,700 for 2），時間緊選路邊各家邊走邊吃更自由</span>
+        </div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">13:30</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Sannenzaka+Kyoto" target="_blank" rel="noopener"><strong>三年坂（産寧坂）・二年坂</strong><span class="ext">↗</span></a> 石板坡道散策<br>
+          <span class="note">傳統工藝品、京陶、清水燒、抹茶冰淇淋，沿途購物或拍照（人流最美的石板巷）</span></div>
+        </li>
+        <li>
+          <div class="tt">14:15</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Hokanji+Temple+Yasaka+Pagoda+Kyoto" target="_blank" rel="noopener"><strong>法観寺・八坂の塔</strong><span class="ext">↗</span></a>（五重塔，¥400）<br>
+          <span class="note">京都最著名的五重塔拍照點，旁邊的石塀小路（石墻小巷）走起來很有畫面感</span></div>
+        </li>
+        <li>
+          <div class="tt">15:00</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Yasaka+Shrine+Gion+Kyoto" target="_blank" rel="noopener"><strong>八坂神社</strong><span class="ext">↗</span></a>（免費），京都最重要的神社之一，7 月正是祇園祭後的氛圍</div>
+        </li>
+        <li>
+          <div class="tt">15:30</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Hanamikoji+Street+Gion+Kyoto" target="_blank" rel="noopener"><strong>花見小路</strong><span class="ext">↗</span></a>：祇園最美的街道，兩旁是傳統料亭，傍晚機率見到藝伎出行</div>
+        </li>
+        <li>
+          <div class="tt">16:00</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Shirakawa+Canal+Gion+Kyoto" target="_blank" rel="noopener"><strong>白川</strong><span class="ext">↗</span></a>（白川沿岸步道）：石橋・垂柳・提灯・町家建築，京都夜晚感最濃的地方</div>
+        </li>
+        <li>
+          <div class="tt">16:30</div>
+          <div class="tc"><span class="label train">回程</span> 前往 <strong>祇園四条駅（京阪）</strong> 搭車回大阪</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 祇園 → 大阪飯店（京阪→御堂筋線→阪神，約 65 分，¥870/人）</div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">花見小路 → 步行 5 分 → <strong>祇園四条駅（京阪本線）</strong></div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>京阪本線 特急</strong>：祇園四条 → 淀屋橋<span class="r-fare">¥420　34 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>御堂筋線</strong>（南行）：淀屋橋 → なんば<span class="r-fare">¥270　10 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>阪神なんば線</strong>：大阪難波 → 桜川<span class="r-fare">¥170　2 分</span></div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">18:00</div>
+          <div class="tc"><span class="label rest">休息</span> 回飯店，洗澡休息（今天步行量最大，東山坡道＋登伏見稻荷）</div>
+        </li>
+        <li>
+          <div class="tt">19:30</div>
+          <div class="tc"><span class="label eat">晚餐</span> 步行前往心齋橋：<strong>鮨 尽誠（Jinsei）</strong> 高級壽司 omakase（需提前訂位）</div>
+        </li>
+      </ul>
+
+      <div class="rest-box">
+        <div class="rest-title">🍣 晚餐｜<a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Sushi+Jinsei+Shinsaibashi+Osaka" target="_blank" rel="noopener">鮨 尽誠（Jinsei）↗</a>（米其林一星・江戶前×關西壽司）</div>
+        <div class="rest-meta">
+          <span>📍 大阪市中央区心齋橋（心齋橋駅步行約 4 分）</span>
+          <span>⏰ 僅 6 個吧台座位，務必提前訂位</span><br>
+          <span>💴 Omakase 套餐約 ¥15,000-25,000/人</span><br>
+          <span>⭐ 融合江戶前與關西風壽司，當地美食網站評分極高，是預約困難的名店</span>
+          <span>📌 建議出發前 1-2 個月透過官網／電話／訂位平台預約；若訂不到位，備案改「すし処 錦」（日本橋駅步行 3 分，8 席吧台，離黒門市場也近）</span>
+        </div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">21:00</div>
+          <div class="tc"><span class="label rest">回飯店</span> 補水、泡腳，準備明天大阪城行程</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- DAY 4 -->
+  <!-- ============================================================ -->
+  <div class="day-card no-break">
+    <div class="day-card-header">
+      <div class="day-name">Day 4　大阪城・中之島・四天王寺・住吉大社</div>
+      <div class="day-date">7 月 28 日（二）</div>
+    </div>
+    <div class="day-card-body">
+      <div class="photo-strip">
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Osaka+Castle+Tower+Osaka" target="_blank" rel="noopener"><img src="images/osaka_castle.jpg" alt="大阪城"><div class="ps-cap">大阪城・天守閣 ↗</div></a>
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Nakanoshima+Park+Osaka" target="_blank" rel="noopener"><img src="images/nakanoshima_park.jpg" alt="中之島公園"><div class="ps-cap">中之島・中央公会堂 ↗</div></a>
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Shitennoji+Temple+Osaka" target="_blank" rel="noopener"><img src="images/shitennoji.jpg" alt="四天王寺"><div class="ps-cap">四天王寺・五重塔 ↗</div></a>
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Sumiyoshi+Taisha+Shrine+Osaka" target="_blank" rel="noopener"><img src="images/sumiyoshi_taisha.jpg" alt="住吉大社"><div class="ps-cap">住吉大社・太鼓橋 ↗</div></a>
+      </div>
+      <div class="tag-row">
+        <span class="tag">御堂筋線</span>
+        <span class="tag">中央線</span>
+        <span class="tag">堺筋線</span>
+        <span class="tag">南海本線（住吉大社）</span>
+        <span class="tag warn">大阪市內一日，不去京都</span>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">08:00</div>
+          <div class="tc"><span class="label rest">起床</span> 今天全在大阪市內，不用太早出發</div>
+        </li>
+        <li>
+          <div class="tt">08:30</div>
+          <div class="tc"><span class="label eat">早餐</span> 步行 15 分到難波：<strong>551蓬莱 難波本店</strong> 買剛出爐豚まん<br>
+          <span class="note">551蓬莱 難波本店：大阪市中央区難波3-6-3；豚まん ¥180/個，外帶現吃，2 個輕鬆飽</span></div>
+        </li>
+        <li>
+          <div class="tt">09:00</div>
+          <div class="tc"><span class="label train">出發</span> 前往大阪城</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 難波 → 大阪城（御堂筋線→中央線，約 25 分，¥280/人）</div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>御堂筋線</strong>（北行）：なんば → 本町（Honmachi）<span class="r-fare">¥230　4 分　2 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>中央線</strong>（東行）：本町 → 谷町四丁目（Tanimachi 4-chome）<span class="r-fare">同区間¥240　5 分　2 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">谷町四丁目駅 1B 出口 → 步行 7 分 → <strong>大阪城公園 西の丸庭園</strong></div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">09:30</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Nishinomaru+Garden+Osaka+Castle" target="_blank" rel="noopener"><strong>西の丸庭園</strong><span class="ext">↗</span></a>（¥200）：從庭園看大阪城天守閣的經典角度，先拍大遠景</div>
+        </li>
+        <li>
+          <div class="tt">10:00</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Osaka+Castle+Tower+Osaka" target="_blank" rel="noopener"><strong>大阪城天守閣</strong><span class="ext">↗</span></a>（¥600/人）：8 層展示館＋頂層瞭望台，有電梯<br>
+          <span class="note">館內展示豐臣・德川時代武器、甲冑，頂層 360° 俯瞰大阪市區</span></div>
+        </li>
+        <li>
+          <div class="tt">11:15</div>
+          <div class="tc"><span class="label">景點</span> <strong>豊国神社</strong>（豐臣秀吉神社，免費）：大阪城內，繞一圈即可</div>
+        </li>
+        <li>
+          <div class="tt">11:30</div>
+          <div class="tc"><span class="label train">移動</span> 前往中之島・北浜エリア</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 大阪城 → 中之島（中央線→堺筋線，約 15 分，¥240/人）</div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行回 谷町四丁目駅</div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>中央線</strong>（西行）：谷町四丁目 → 堺筋本町<span class="r-fare">¥240　3 分　1 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>堺筋線</strong>（北行）：堺筋本町 → 北浜（Kitahama）<span class="r-fare">同票　2 分　1 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">北浜駅 26 號出口 → 步行 3 分 → <strong>北浜レトロ / 中之島公園</strong></div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">12:00</div>
+          <div class="tc"><span class="label eat">午餐</span> <strong>北浜レトロ（Kitahama Retro）</strong> 英式午茶</div>
+        </li>
+      </ul>
+
+      <div class="rest-box">
+        <div class="rest-title">☕ 午餐｜<a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Kitahama+Retro+Osaka" target="_blank" rel="noopener">北浜レトロ（英式茶室・1912 年歷史建築）↗</a></div>
+        <div class="rest-meta">
+          <span>📍 大阪市中央区北浜1-1-26（緊鄰土佐堀川河岸）</span><br>
+          <span>⏰ 平日 11:00-20:00（週末 10:30 起）</span>
+          <span>💴 アフタヌーンティーセット ¥1,850-2,500/人</span><br>
+          <span>⭐ 用一棟 1912 年建造的英式磚造小樓改建，是大阪最具氣氛的下午茶地點之一</span><br>
+          <span>📌 人氣高，建議 12:00 前到；若當天人太多改去 中之島バンクス 的其他餐廳亦可</span>
+        </div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">13:30</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Nakanoshima+Park+Osaka" target="_blank" rel="noopener"><strong>中之島公園</strong><span class="ext">↗</span></a>：<a class="ml" href="https://www.google.com/maps/search/?api=1&query=Osaka+City+Central+Public+Hall" target="_blank" rel="noopener">大阪市公会堂<span class="ext">↗</span></a>（1918 年，红色歷史建築，¥300 可入內）、バラ園</div>
+        </li>
+        <li>
+          <div class="tt">14:15</div>
+          <div class="tc"><span class="label">景點</span> 堂島川・土佐堀川 河岸步行，欣賞北浜老金融街景觀</div>
+        </li>
+        <li>
+          <div class="tt">14:30</div>
+          <div class="tc"><span class="label train">移動</span> 前往四天王寺</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 中之島（淀屋橋）→ 四天王寺（御堂筋線，約 20 分，¥280/人）</div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行 5 分 → 大阪メトロ <strong>淀屋橋駅</strong>（御堂筋線）</div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>御堂筋線</strong>（南行）：淀屋橋 → 天王寺<span class="r-fare">¥280　12 分　5 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">天王寺駅 北口 → 步行 12 分 → <strong>四天王寺</strong>（西大門方向）</div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">15:00</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Shitennoji+Temple+Osaka" target="_blank" rel="noopener"><strong>四天王寺</strong><span class="ext">↗</span></a>（四天王寺中心伽藍 ¥300/人）<br>
+          <span class="note">聖德太子 593 年創建，日本最古老官寺；五重塔（五重の塔）、金堂（こんどう）、石の鳥居（免費可參觀）；境內亀の池（龜池）也很有禪意</span></div>
+        </li>
+        <li>
+          <div class="tt">16:00</div>
+          <div class="tc"><span class="label train">移動</span> 前往住吉大社</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 四天王寺（天王寺）→ 住吉大社（御堂筋線→南海本線，約 20 分，¥410/人）</div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行 12 分 → 大阪メトロ 天王寺駅</div></div>
+        <div class="route-step"><div class="r-icon">🚇</div><div class="r-text"><strong>御堂筋線</strong>（南行）：天王寺 → なんば<span class="r-fare">¥230　5 分　2 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">步行 5 分 → <strong>南海 難波駅</strong>（南海電鐵，不是 Metro Namba）</div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>南海本線</strong>（南行・関西空港方向）：難波 → 住吉大社駅<span class="r-fare">¥180　8 分　3 停</span></div></div>
+        <div class="route-step"><div class="r-icon">🚶</div><div class="r-text">住吉大社駅 → 步行 3 分 → <strong>住吉大社 大鳥居</strong></div></div>
+        <div class="route-step"><div class="r-icon">💡</div><div class="r-text">或從天王寺搭 <strong>阪堺電車（路面電車）上町線</strong>：天王寺駅前 → 住吉鳥居前（¥230，25分）體驗老式路面電車，但較慢</div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">16:30</div>
+          <div class="tc"><span class="label">景點</span> <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Sumiyoshi+Taisha+Shrine+Osaka" target="_blank" rel="noopener"><strong>住吉大社</strong><span class="ext">↗</span></a>（免費）<br>
+          <span class="note">日本三大古社之一，創建於 211 AD；最有名的是太鼓橋（反橋 そり橋）：橋陡如山丘，爬上去再下來這一個動作代表「祓禊」淨身；境内四棟本宮（住吉造建築様式，日本最古老的神社建築形式之一）</span></div>
+        </li>
+        <li>
+          <div class="tt">17:30</div>
+          <div class="tc"><span class="label train">回程</span> 前往難波</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 住吉大社 → 飯店（南海本線→阪神なんば線，約 15 分，¥350/人）</div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>南海本線</strong>（北行）：住吉大社 → 難波<span class="r-fare">¥180　8 分</span></div></div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>阪神なんば線</strong>：大阪難波 → 桜川<span class="r-fare">¥170　2 分</span></div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">18:00</div>
+          <div class="tc"><span class="label rest">休息</span> 回飯店，稍作休息後，出門吃倒數第二晚的大阪晚餐</div>
+        </li>
+        <li>
+          <div class="tt">19:00</div>
+          <div class="tc"><span class="label eat">晚餐</span> 步行前往道頓堀：<strong>道頓堀みつる</strong> 高級燒肉（A5 黑毛和牛，建議提前訂位）</div>
+        </li>
+      </ul>
+
+      <div class="rest-box">
+        <div class="rest-title">🥩 晚餐｜<a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Mitsuru+Yakiniku+Osaka" target="_blank" rel="noopener">道頓堀みつる ↗</a>（A5 黑毛和牛燒肉）</div>
+        <div class="rest-meta">
+          <span>📍 大阪市中央区道頓堀1-7-8</span>
+          <span>⏰ 建議提前訂位，避開週末尖峰</span><br>
+          <span>💴 預算 ¥8,000-15,000/人（A5 和牛套餐＋炙燒和牛壽司）</span><br>
+          <span>⭐ 整隻買下 A5 黑毛和牛，炙燒和牛壽司、蔥鹽牛舌是招牌</span>
+          <span>📌 大阪倒數第二晚的犒賞大餐，離飯店走路可達，不用再跑遠</span>
+        </div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">20:30</div>
+          <div class="tc"><span class="label rest">回飯店</span> 把行李收好（明天退房），好好睡一覺</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- DAY 5 -->
+  <!-- ============================================================ -->
+  <div class="day-card no-break">
+    <div class="day-card-header">
+      <div class="day-name">Day 5　黒門市場早食・採買・關西機場 → 桃園</div>
+      <div class="day-date">7 月 29 日（三）</div>
+    </div>
+    <div class="day-card-body">
+      <div class="photo-strip">
+        <a class="ps-item" href="https://www.google.com/maps/search/?api=1&query=Kuromon+Ichiba+Market+Osaka" target="_blank" rel="noopener"><img src="images/dotonbori.jpg" alt="難波・道頓堀"><div class="ps-cap">道頓堀・難波エリア ↗</div></a>
+      </div>
+      <div class="tag-row">
+        <span class="tag">黒門市場</span>
+        <span class="tag">ドン・キホーテ（免稅採買）</span>
+        <span class="tag">南海電鐵 Rapi:t → KIX</span>
+        <span class="tag">長榮 BR129</span>
+        <span class="tag warn">最晚 13:30 前抵達難波搭車</span>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">07:30</div>
+          <div class="tc"><span class="label rest">起床</span> 最後一天！起床後把剩餘行李整理好，確認護照、手機、錢包</div>
+        </li>
+        <li>
+          <div class="tt">08:30</div>
+          <div class="tc"><span class="label eat">早餐</span> 前往 <strong>黒門市場（Kuromon Ichiba Market）</strong> 吃早食</div>
+        </li>
+      </ul>
+
+      <div class="rest-box">
+        <div class="rest-title">🦪 早餐｜<a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Kuromon+Ichiba+Market+Osaka" target="_blank" rel="noopener">黒門市場（大阪人的廚房）↗</a></div>
+        <div class="rest-meta">
+          <span>📍 大阪市中央区日本橋2丁目4-1（從難波步行 10 分鐘）</span><br>
+          <span>⏰ 多數店 09:00-18:00 開始，來得早約 8:30 可看到有些店開門</span><br>
+          <span>💴 預算 ¥1,500-2,000/人（海鮮串・生蠔・海膽飯・和牛串）</span><br>
+          <span>🦪 生蠔 ¥200-300/個　🍣 まぐろ海鮮串 ¥400-600　🦔 海膽軍艦 ¥400</span><br>
+          <span>📌 邊走邊吃，這個市場就是要在路邊站著吃才有味</span>
+        </div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">09:30</div>
+          <div class="tc"><span class="label shop">採買</span> 最後採買：<a class="ml" href="https://www.google.com/maps/search/?api=1&query=Shinsaibashi+Osaka" target="_blank" rel="noopener">心齋橋<span class="ext">↗</span></a>・難波エリア</div>
+        </li>
+      </ul>
+
+      <div class="callout">
+        <strong>最後採買 Priority 清單：</strong><br>
+        1. <a class="ml" href="https://www.google.com/maps/search/?api=1&query=551+Horai+Namba+Osaka" target="_blank" rel="noopener"><strong>551蓬莱 難波本店<span class="ext">↗</span></strong></a>（大阪市中央区難波3-6-3）：冷凍焼売（シュウマイ，¥1,580/盒）可帶上飛機，豚まん現買現吃<br>
+        2. <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Don+Quijote+Dotonbori+Osaka" target="_blank" rel="noopener"><strong>ドン・キホーテ 道頓堀店<span class="ext">↗</span></strong></a>（道頓堀1-9-14，24H）：免稅藥妝・零食，出示護照即可享免稅<br>
+        3. <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Matsumoto+Kiyoshi+Shinsaibashi+Osaka" target="_blank" rel="noopener"><strong>マツモトキヨシ 心齋橋店<span class="ext">↗</span></strong></a>：肌研、トランシーノ、ロート EX、眼藥水等日系藥妝<br>
+        4. <a class="ml" href="https://www.google.com/maps/search/?api=1&query=Daimaru+Shinsaibashi+Osaka" target="_blank" rel="noopener"><strong>大丸心齋橋 B1F 食品館<span class="ext">↗</span></strong></a>：和菓子・黑糖・各類大阪名產土産盒
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">11:00</div>
+          <div class="tc"><span class="label rest">退房</span> 回飯店 check-out（退房時間 11:00），行李已打包好直接領出</div>
+        </li>
+        <li>
+          <div class="tt">11:30</div>
+          <div class="tc"><span class="label eat">午餐</span> 在難波附近快速用餐或路邊食品解決<br>
+          <span class="note">551蓬莱の豚まん在這裡吃、或 はなまるうどん 快速烏冬麵即可，不用花太多時間在午餐</span></div>
+        </li>
+        <li>
+          <div class="tt">12:00</div>
+          <div class="tc"><span class="label train">出發機場</span> 前往 <strong>南海電鐵 難波駅</strong> 搭 Rapi:t</div>
+        </li>
+      </ul>
+
+      <div class="route-box">
+        <div class="route-title">🚃 難波 → 關西機場（南海電鐵 Rapi:t，¥1,560/人，38 分）</div>
+        <div class="route-step"><div class="r-icon">🚆</div><div class="r-text"><strong>特急 Rapi:t α</strong>（最快班次）或 <strong>Rapi:t β</strong>：南海難波駅 → 関西空港駅<span class="r-fare">¥1,560/人　38 分　全程指定席</span></div></div>
+        <div class="route-step"><div class="r-icon">🚃</div><div class="r-text">一般空港急行：南海難波駅 → 関西空港駅<span class="r-fare">¥930/人　45-50 分</span></div></div>
+        <div class="route-step"><div class="r-icon">💡</div><div class="r-text">最晚出發時間：13:30 搭車，約 14:10 抵達機場，留 4 小時餘裕（BR129 18:30 起飛）。建議 12:00-12:30 出發最寬鬆。</div></div>
+      </div>
+
+      <ul class="tl">
+        <li>
+          <div class="tt">12:38</div>
+          <div class="tc"><span class="label">機場</span> 抵達 KIX，前往 Terminal 1（長榮 BR129）</div>
+        </li>
+        <li>
+          <div class="tt">13:00</div>
+          <div class="tc"><span class="label shop">機場</span> 機場免稅區最後購物：酒類・巧克力・日本威士忌（Nikka/Suntory）</div>
+        </li>
+        <li>
+          <div class="tt">15:30</div>
+          <div class="tc"><span class="label">機場</span> <strong>長榮航空 BR129 報到開始</strong>（Check-in counter，起飛前 3 小時）<br>
+          <span class="note">行李每件上限 23kg（經濟艙），551蓬莱冷凍焼売放行李箱，液體/膏狀物需過 100ml 限制</span></div>
+        </li>
+        <li>
+          <div class="tt">16:30</div>
+          <div class="tc"><span class="label">機場</span> 完成 Check-in，出境手續（出境審查＋安檢），進入候機室</div>
+        </li>
+        <li>
+          <div class="tt">17:00</div>
+          <div class="tc"><span class="label eat">候機</span> 機場側出發大廳餐廳：可吃最後一碗日本拉麵，或便利商店買零食帶上機</div>
+        </li>
+        <li>
+          <div class="tt">18:30</div>
+          <div class="tc"><span class="label">飛機</span> <strong>BR129 準時起飛</strong>，飛行約 2h（準點率一般，有時延誤 30-40 分）</div>
+        </li>
+        <li>
+          <div class="tt">20:30</div>
+          <div class="tc"><span class="label rest">抵台</span> 抵達桃園機場 Terminal 2，入境、提行李</div>
+        </li>
+        <li>
+          <div class="tt">21:30</div>
+          <div class="tc"><span class="label rest">到家</span> 回到家，解鎖大阪旅遊勳章</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- RESTAURANT SUMMARY -->
+  <!-- ============================================================ -->
+  <h2 class="section-title">餐廳總整理</h2>
+  <table>
+    <tr><th>Day</th><th>餐次</th><th>店名</th><th>地址</th><th>人均費用</th><th>特色</th></tr>
+    <tr><td>Day1 晚</td><td>晚餐</td><td>美津の（Mizuno）</td><td>道頓堀1-4-15</td><td>¥1,300-1,800</td><td>1945年大阪燒老鋪，山芋燒</td></tr>
+    <tr><td>Day1 點心</td><td>消夜</td><td>くくる 道頓堀本店</td><td>道頓堀1-10-5</td><td>¥900</td><td>8個たこ焼き，Q彈有汁</td></tr>
+    <tr><td>Day2 午</td><td>午餐</td><td>嵐山よしむら</td><td>嵯峨天龍寺芒ノ馬場町3</td><td>¥1,300-1,800</td><td>蕎麥麵，渡月橋河景窗邊</td></tr>
+    <tr><td>Day2 晚</td><td>晚餐</td><td>串カツだるま 道頓堀</td><td>道頓堀1-6-4</td><td>¥2,000-2,500</td><td>串炸，不能醬料二度漬！</td></tr>
+    <tr><td>Day3 午</td><td>午餐</td><td>奥丹清水 or 三年坂街食</td><td>清水3-340</td><td>¥1,500-3,850</td><td>湯豆腐懷石 or 邊走邊吃</td></tr>
+    <tr><td>Day3 晚</td><td>晚餐</td><td>鮨 尽誠（Jinsei）</td><td>心齋橋</td><td>¥15,000-25,000</td><td>米其林一星 omakase，高級海鮮</td></tr>
+    <tr><td>Day4 早</td><td>早餐</td><td>551蓬莱 難波本店</td><td>難波3-6-3</td><td>¥400-500</td><td>豚まん ¥180/個，現烤最好吃</td></tr>
+    <tr><td>Day4 午</td><td>午餐</td><td>北浜レトロ</td><td>北浜1-1-26</td><td>¥1,800-2,500</td><td>1912年英式磚屋，河岸景觀</td></tr>
+    <tr><td>Day4 晚</td><td>晚餐</td><td>道頓堀みつる</td><td>道頓堀1-7-8</td><td>¥8,000-15,000</td><td>A5 黑毛和牛燒肉，高級犒賞大餐</td></tr>
+    <tr><td>Day5 早</td><td>早餐</td><td>黒門市場</td><td>日本橋2丁目</td><td>¥1,500-2,000</td><td>生蠔・海膽飯・海鮮串</td></tr>
+  </table>
+
+  <!-- ============================================================ -->
+  <!-- TRAIN ROUTE SUMMARY -->
+  <!-- ============================================================ -->
+  <h2 class="section-title">電車路線全攻略（逐段說明）</h2>
+  <table>
+    <tr><th>段落</th><th>起站</th><th>搭乘路線</th><th>訖站</th><th>費用/人</th><th>時間</th></tr>
+    <tr><td>Day1 入境</td><td>関西空港</td><td>南海 特急 Rapi:t</td><td>南海難波</td><td>¥1,560</td><td>38 分</td></tr>
+    <tr><td>Day1 飯店</td><td>大阪難波</td><td>阪神なんば線</td><td>桜川</td><td>¥170</td><td>2 分</td></tr>
+    <tr><td rowspan="4">Day2 嵐山</td><td>桜川</td><td>阪神なんば線</td><td>大阪難波</td><td>¥170</td><td>2 分</td></tr>
+    <tr><td>なんば</td><td>御堂筋線（北行）</td><td>梅田</td><td>¥230</td><td>7 分</td></tr>
+    <tr><td>大阪梅田</td><td>阪急京都線 特急</td><td>桂</td><td>¥510</td><td>30 分</td></tr>
+    <tr><td>桂</td><td>阪急嵐山線</td><td>嵐山（阪急）</td><td>¥220</td><td>10 分</td></tr>
+    <tr><td rowspan="4">Day3 伏見</td><td>桜川</td><td>阪神なんば線</td><td>大阪難波</td><td>¥170</td><td>2 分</td></tr>
+    <tr><td>なんば</td><td>御堂筋線（北行）</td><td>淀屋橋</td><td>¥270</td><td>10 分</td></tr>
+    <tr><td>淀屋橋</td><td>京阪本線 特急</td><td>伏見稲荷</td><td>¥430</td><td>32 分</td></tr>
+    <tr><td>伏見稲荷</td><td>京阪本線（北行）</td><td>清水五条</td><td>¥200</td><td>6 分</td></tr>
+    <tr><td>Day3 回程</td><td>祇園四条</td><td>京阪本線 特急</td><td>淀屋橋</td><td>¥420</td><td>34 分</td></tr>
+    <tr><td rowspan="3">Day4 大阪城</td><td>なんば</td><td>御堂筋線（北行）</td><td>本町</td><td>¥230</td><td>4 分</td></tr>
+    <tr><td>本町</td><td>中央線（東行）</td><td>谷町四丁目</td><td>¥240</td><td>5 分</td></tr>
+    <tr><td>谷町四丁目</td><td>中央線→堺筋線</td><td>北浜</td><td>¥240</td><td>7 分</td></tr>
+    <tr><td rowspan="2">Day4 住吉</td><td>淀屋橋</td><td>御堂筋線（南行）</td><td>なんば</td><td>¥270</td><td>10 分</td></tr>
+    <tr><td>難波（南海）</td><td>南海本線</td><td>住吉大社</td><td>¥180</td><td>8 分</td></tr>
+    <tr><td>Day5 機場</td><td>南海難波</td><td>南海 特急 Rapi:t</td><td>関西空港</td><td>¥1,560</td><td>38 分</td></tr>
+  </table>
+
+  <div class="callout warn">
+    <strong>⚠️ 三個「難波」注意：</strong>大阪難波周邊有三個不同的「難波」站，不要搞混！<br>
+    ① <strong>南海 難波駅</strong>（南海電鐵）→ 去關西機場、住吉大社<br>
+    ② <strong>大阪難波駅</strong>（阪神なんば線）→ 去桜川飯店<br>
+    ③ <strong>なんば駅</strong>（大阪メトロ 御堂筋線・千日前線等）→ 去京都、大阪城<br>
+    三個站彼此步行 5-10 分鐘，地上地下都有連通，跟著指示走即可。
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- COST SUMMARY -->
+  <!-- ============================================================ -->
+  <h2 class="section-title">費用總覽（2 人）</h2>
+  <table>
+    <tr><th>項目</th><th>金額（NT$，2 人合計）</th><th>備註</th></tr>
+    <tr><td>來回機票（BR132 / BR129）</td><td><strong>46,176（已確定）</strong></td><td>每人約 NT$23,088</td></tr>
+    <tr><td>住宿 FDS ZEAL（4 晚）</td><td><strong>7,189（已確定）</strong></td><td>公寓式，含廚房、洗衣機</td></tr>
+    <tr><td>電車交通（城際＋市內）</td><td>3,000 ～ 4,000</td><td>京都 2 次＋大阪市內各段</td></tr>
+    <tr><td>景點門票</td><td>2,000 ～ 3,000</td><td>大阪城、清水寺、天龍寺、四天王寺等</td></tr>
+    <tr><td>餐飲（5 天外食，含 2 餐高級燒肉／壽司）</td><td>20,000 ～ 30,000</td><td>含黒門市場、北浜レトロ、鮨尽誠、道頓堀みつる</td></tr>
+    <tr><td>eSIM + 旅遊保險</td><td>1,000 ～ 1,500</td><td>2 人合計</td></tr>
+    <tr><td>採買伴手禮・藥妝</td><td>4,000 ～ 8,000</td><td>依個人喜好</td></tr>
+    <tr class="total-row"><td><strong>總計（2 人）</strong></td><td><strong>約 NT$83,000 ～ 100,000</strong></td><td>平均每人 NT$41,500～50,000（因加入高級燒肉＋壽司大幅提升，實際依訂位套餐價格調整）</td></tr>
+  </table>
+
+  <!-- ============================================================ -->
+  <!-- PRE-DEPARTURE CHECKLIST -->
+  <!-- ============================================================ -->
+  <h2 class="section-title">出發前準備清單</h2>
+  <div style="columns:2;column-gap:28px;margin-top:10px;">
+
+    <div style="break-inside:avoid;margin-bottom:18px;">
+      <h3>✅ 已確定事項</h3>
+      <label>☑ 機票 BR132（去）/BR129（回）已訂</label>
+      <label>☑ 飯店 FDS ZEAL 4 晚已訂</label>
+    </div>
+
+    <div style="break-inside:avoid;margin-bottom:18px;">
+      <h3>📋 證件財務</h3>
+      <label><input type="checkbox"> 護照效期 ≥ 6 個月</label>
+      <label><input type="checkbox"> 護照影本 + 大頭照備用</label>
+      <label><input type="checkbox"> 現金日圓（建議帶 ¥30,000-50,000）</label>
+      <label><input type="checkbox"> 海外消費免手續費信用卡</label>
+    </div>
+
+    <div style="break-inside:avoid;margin-bottom:18px;">
+      <h3>📱 通訊 &amp; 3C</h3>
+      <label><input type="checkbox"> eSIM 購買並測試（IIJmio / Klook 等）</label>
+      <label><input type="checkbox"> 行動電源（充飽）</label>
+      <label><input type="checkbox"> iPhone 轉接線（日本 A 型插座與台灣相同，免帶轉接頭）</label>
+      <label><input type="checkbox"> Google Maps 離線地圖：下載「大阪」「京都」</label>
+      <label><input type="checkbox"> 下載 NAVITIME Japan 或 Japan Transit Planner（電車查詢）</label>
+    </div>
+
+    <div style="break-inside:avoid;margin-bottom:18px;">
+      <h3>🏥 健康 &amp; 保險</h3>
+      <label><input type="checkbox"> 旅遊平安險（5 天）</label>
+      <label><input type="checkbox"> 常備藥：腸胃藥、感冒藥、OK 繃、退燒藥</label>
+      <label><input type="checkbox"> 防曬 SPF50+（7 月京都大阪逼近 35°C）</label>
+      <label><input type="checkbox"> 遮陽帽 + 隨身小風扇</label>
+      <label><input type="checkbox"> 保冷水壺（多喝水）</label>
+    </div>
+
+    <div style="break-inside:avoid;margin-bottom:18px;">
+      <h3>🎒 行李衣物</h3>
+      <label><input type="checkbox"> 夏季輕薄衣物（透氣排汗）× 5 套</label>
+      <label><input type="checkbox"> 薄外套（室內冷氣、電車很冷）</label>
+      <label><input type="checkbox"> 好走的鞋（京都兩天石板坡道多）</label>
+      <label><input type="checkbox"> 雨傘 or 折疊雨衣（7 月偶有午後雷陣雨）</label>
+      <label><input type="checkbox"> 摺疊購物袋（採買用）</label>
+    </div>
+
+    <div style="break-inside:avoid;margin-bottom:18px;">
+      <h3>🎟 票券事先確認</h3>
+      <label><input type="checkbox"> 嵐山よしむら：無需預訂，早到排隊即可</label>
+      <label><input type="checkbox"> 奥丹清水：建議現場排隊，或電話確認是否接受預約</label>
+      <label><input type="checkbox"> ICOCA 交通 IC 卡：到大阪後在任何地鐵售票機購買（¥2,000 起）</label>
+      <label><input type="checkbox"> Visit Japan Web：事先填寫入境資料，過海關更快</label>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>暑假七月重要提醒：</strong>
+    7 月底大阪京都氣溫約 33-36°C，體感更熱。戶外景點盡量安排 09:00 前（伏見稻荷、竹林）或 16:00 後，正中午躲進室內（天守閣展示館、心齋橋商店街走廊、咖啡館）。隨時補水，每天至少 1.5L 飲水量。
+  </div>
+
+  <div class="photo-credit" style="text-align:center;margin-top:20px;">各 Day 頂部圖片點擊即開啟 Google 地圖　｜　景點照片來源：Wikimedia Commons（CC 公開授權，僅供個人行程參考）</div>
+  <div class="footer-page">
+    大阪・京都 五天四夜手冊 v7（超詳細時間表版）　｜　更新：2026.06.28　｜　2 人享受型　｜　主軸：神社・古城・自然
+  </div>
+
+</div>
+</body>
+</html>

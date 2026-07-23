@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>大阪・京都 五天四夜手冊</title>
+<style>
+  @page { size: A4; margin: 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: #f7f4ee;
+    color: #2b2b2b;
+    margin: 0;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 36px 40px;
+  }
+  .cover {
+    background: linear-gradient(160deg, #1f4e8c 0%, #15315c 100%);
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+    border-bottom: 10px solid #c9a14a;
+    page-break-after: always;
+    min-height: 265mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .cover .kicker {
+    letter-spacing: 4px;
+    font-size: 13px;
+    opacity: .85;
+    margin-bottom: 18px;
+  }
+  .cover h1 {
+    font-size: 38px;
+    margin: 0 0 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .cover .sub {
+    font-size: 17px;
+    opacity: .92;
+    margin-bottom: 30px;
+  }
+  .cover .dates {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 36px;
+    letter-spacing: 1px;
+  }
+  .cover .badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+  .cover .footer-note {
+    margin-top: 60px;
+    font-size: 12px;
+    opacity: .7;
+  }
+  .alert-banner {
+    background: #fdf0df;
+    border: 1px solid #c9a14a;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    margin-bottom: 10px;
+  }
+  .alert-banner strong { color: #15315c; }
+
+  h2.section-title {
+    font-size: 22px;
+    color: #15315c;
+    border-left: 6px solid #c9a14a;
+    padding-left: 14px;
+    margin: 30px 0 14px;
+  }
+  h2.section-title:first-of-type { margin-top: 6px; }
+  h3.day-title {
+    font-size: 17px;
+    color: #fff;
+    background: #15315c;
+    padding: 10px 16px;
+    border-radius: 6px 6px 0 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  h3.day-title .date-tag {
+    font-size: 13px;
+    opacity: .85;
+    align-self: center;
+  }
+  .day-card {
+    border: 1px solid #dcd3c0;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    page-break-inside: avoid;
+    overflow: hidden;
+    background: #fff;
+  }
+  .day-card .day-body { padding: 14px 20px; }
+  .day-card .tag {
+    display: inline-block;
+    font-size: 11px;
+    color: #15315c;
+    background: #e9eef6;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+  }
+  .day-card ul { margin: 8px 0 0; padding-left: 20px; }
+  .day-card li { margin-bottom: 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 18px;
+    font-size: 13.5px;
+  }
+  th, td {
+    border: 1px solid #dcd3c0;
+    padding: 9px 12px;
+    text-align: left;
+  }
+  th {
+    background: #15315c;
+    color: #fff;
+    font-weight: 600;
+  }
+  tr:nth-child(even) td { background: #f3f0e8; }
+  .total-row td {
+    font-weight: 700;
+    background: #e9eef6 !important;
+    color: #15315c;
+  }
+
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+    margin: 14px 0 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .timeline .step {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #dcd3c0;
+    border-top: 4px solid #c9a14a;
+    border-radius: 4px;
+    padding: 10px 6px;
+    font-size: 12.5px;
+  }
+  .timeline .step .d { color: #15315c; font-weight: 700; font-size: 14px; }
+  .timeline .step .dt { color: #93897a; font-size: 11px; margin-bottom: 2px; }
+
+  .checklist { columns: 2; column-gap: 30px; margin-top: 10px; }
+  .checklist .group { margin-bottom: 16px; break-inside: avoid; }
+  .checklist .group h4 {
+    font-size: 14px;
+    color: #15315c;
+    margin: 0 0 6px;
+    border-bottom: 1px solid #dcd3c0;
+    padding-bottom: 4px;
+  }
+  .checklist label { display: block; font-size: 13.5px; margin-bottom: 5px; }
+  .checklist input { margin-right: 6px; }
+
+  .callout {
+    background: #e9eef6;
+    border-left: 5px solid #c9a14a;
+    padding: 12px 18px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    margin: 10px 0;
+  }
+  .callout strong { color: #15315c; }
+
+  .grid-2 { display: flex; gap: 20px; flex-wrap: wrap; }
+  .grid-2 .col { flex: 1; min-width: 260px; }
+
+  .photo-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 14px 0 4px;
+  }
+  .photo-item {
+    flex: 1;
+    min-width: 140px;
+    background: #fff;
+    border: 1px solid #dcd3c0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(21,49,92,0.08);
+  }
+  .photo-item img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.15s ease;
+  }
+  .photo-item .cap {
+    font-size: 11.5px;
+    color: #15315c;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px 4px;
+    background: #f3f0e8;
+    transition: background 0.15s ease;
+  }
+  .photo-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .photo-item a:hover img { opacity: 0.85; }
+  .photo-item a:hover .cap { background: #e9eef6; }
+  .photo-item .cap .pin { font-size: 10px; opacity: .7; margin-left: 2px; }
+  .photo-credit {
+    font-size: 10.5px;
+    color: #93897a;
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  .map-box {
+    background: #fff;
+    border: 1px solid #dcd3c0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 8px;
+  }
+  .map-box svg { max-width: 440px; display: block; margin: 0 auto; }
+  .no-break { page-break-inside: avoid; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 14px 0 20px;
+    font-size: 13px;
+  }
+  .legend .item { display: flex; align-items: center; gap: 6px; }
+  .legend .swatch { width: 22px; height: 4px; border-radius: 2px; }
+  .legend .dash { background-image: linear-gradient(to right, currentColor 50%, transparent 50%); background-size: 8px 4px; height: 4px; width: 22px; }
+
+  .footer-page {
+    text-align: center;
+    font-size: 12px;
+    color: #93897a;
+    margin-top: 50px;
+  }
+
+  @media print {
+    .page { padding: 0; }
+    .day-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">LIFEOS TRAVEL HANDBOOK</div>
+  <h1>大阪・京都</h1>
+  <div class="sub">五天四夜自由行手冊（含路線地圖）</div>
+  <div class="dates">2026 / 7 / 25（六） → 7 / 29（三）</div>
+  <div class="badge-row">
+    <div class="badge">大阪城・古城</div>
+    <div class="badge">神社・寺院</div>
+    <div class="badge">京都・嵐山</div>
+    <div class="badge">京都・東山祇園</div>
+    <div class="badge">2 人　5 天 4 夜</div>
+  </div>
+  <div class="footer-note">更新日期 2026.06.24　｜　機票（BR132／BR129）與飯店（FDS ZEAL）皆已確定</div>
+</div>
+
+<div class="page">
+
+  <div class="alert-banner"><strong>航班與住宿已確定：</strong>去程 BR132（長榮航空）桃園 08:20 起飛 → 關西機場 12:10 抵達；回程 BR129（長榮航空）關西機場 18:30 起飛 → 桃園 20:30 抵達。住宿為 FDS ZEAL（大阪市浪速区桜川），全程以大阪為基地，主軸是神社、古城等人文景觀與自然景觀，不安排主題樂園。<strong>下方每日行程的景點照片皆可點擊，會直接開啟 Google 地圖。</strong></div>
+
+  <div class="no-break">
+  <h2 class="section-title">行程總覽</h2>
+  <div class="timeline">
+    <div class="step"><div class="dt">7/25 六</div><div class="d">Day 1</div>BR132 抵達<br>大阪市區</div>
+    <div class="step"><div class="dt">7/26 日</div><div class="d">Day 2</div>京都一日<br>嵐山</div>
+    <div class="step"><div class="dt">7/27 一</div><div class="d">Day 3</div>京都一日<br>伏見稻荷・東山</div>
+    <div class="step"><div class="dt">7/28 二</div><div class="d">Day 4</div>大阪古城・<br>神社・河岸</div>
+    <div class="step"><div class="dt">7/29 三</div><div class="d">Day 5</div>大阪自由活動<br>BR129 回桃園</div>
+  </div>
+  <div class="callout">
+    <strong>設計邏輯：</strong>5 天 4 夜全部住大阪同一家飯店，京都當天來回兩次（嵐山、東山祇園伏見稻荷各一天），Day4 留在大阪走訪古城、寺院、神社與河岸公園，全程不用搬行李換城市，也不安排主題樂園。
+  </div>
+  </div>
+
+  <div class="no-break">
+  <h2 class="section-title">路線地圖</h2>
+  <div class="map-box">
+    <svg viewBox="0 0 820 560" xmlns="http://www.w3.org/2000/svg" width="100%">
+      <defs>
+        <marker id="arrowNavy" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#15315c"/>
+        </marker>
+        <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#2c7a7a"/>
+        </marker>
+        <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#c9772e"/>
+        </marker>
+      </defs>
+
+      <ellipse cx="480" cy="500" rx="240" ry="80" fill="#dce8ef"/>
+      <text x="560" y="510" font-size="12" fill="#7d97a8">大阪灣</text>
+
+      <!-- Day1: KIX -> Namba -->
+      <path d="M 470,470 Q 430,420 395,365" fill="none" stroke="#15315c" stroke-width="4" marker-end="url(#arrowNavy)"/>
+      <text x="450" y="430" font-size="13" fill="#15315c" font-weight="700">Day1</text>
+
+      <!-- Day2: Namba <-> Arashiyama -->
+      <path d="M 380,345 Q 320,260 260,190" fill="none" stroke="#2c7a7a" stroke-width="3" stroke-dasharray="8,6" marker-end="url(#arrowTeal)"/>
+      <path d="M 270,205 Q 330,275 390,355" fill="none" stroke="#2c7a7a" stroke-width="2" stroke-dasharray="8,6" opacity="0.6"/>
+      <text x="280" y="260" font-size="13" fill="#2c7a7a" font-weight="700">Day2</text>
+
+      <!-- Day3: Namba <-> Fushimi/Higashiyama -->
+      <path d="M 410,345 Q 480,260 545,195" fill="none" stroke="#c9772e" stroke-width="3" stroke-dasharray="8,6" marker-end="url(#arrowGold)"/>
+      <path d="M 555,205 Q 490,280 420,355" fill="none" stroke="#c9772e" stroke-width="2" stroke-dasharray="8,6" opacity="0.6"/>
+      <text x="470" y="245" font-size="13" fill="#c9772e" font-weight="700">Day3</text>
+
+      <!-- Day4: Osaka Castle - Shitennoji - Sumiyoshi loop within Osaka -->
+      <circle cx="400" cy="300" r="46" fill="none" stroke="#15315c" stroke-width="2" stroke-dasharray="3,5" opacity="0.5"/>
+      <text x="345" y="296" font-size="11.5" fill="#15315c" font-weight="700">Day4 古城・寺社・河岸</text>
+
+      <!-- Day5: Namba -> KIX -->
+      <path d="M 405,365 Q 440,420 478,470" fill="none" stroke="#15315c" stroke-width="4" stroke-dasharray="2,4" marker-end="url(#arrowNavy)"/>
+      <text x="430" y="450" font-size="13" fill="#15315c" font-weight="700">Day5</text>
+
+      <!-- Arashiyama -->
+      <circle cx="255" cy="180" r="11" fill="#fff" stroke="#2c7a7a" stroke-width="3"/>
+      <text x="130" y="165" font-size="15" fill="#15315c" font-weight="700">京都・嵐山</text>
+      <text x="130" y="182" font-size="11" fill="#6b6353">Day 2 竹林・渡月橋</text>
+
+      <!-- Fushimi/Higashiyama -->
+      <circle cx="555" cy="190" r="11" fill="#fff" stroke="#c9772e" stroke-width="3"/>
+      <text x="570" y="185" font-size="15" fill="#15315c" font-weight="700">京都・東山＋伏見稻荷</text>
+      <text x="570" y="202" font-size="11" fill="#6b6353">Day 3 清水寺・千本鳥居</text>
+
+      <!-- Namba/Osaka -->
+      <circle cx="400" cy="355" r="15" fill="#15315c" stroke="#c9a14a" stroke-width="3"/>
+      <text x="420" y="345" font-size="16" fill="#15315c" font-weight="700">大阪・難波</text>
+      <text x="420" y="363" font-size="11" fill="#6b6353">Day 1-5 住宿基地（全程同一家）</text>
+
+      <!-- KIX -->
+      <circle cx="480" cy="478" r="13" fill="#fff" stroke="#15315c" stroke-width="3"/>
+      <text x="498" y="473" font-size="15" fill="#15315c" font-weight="700">關西機場 KIX</text>
+      <text x="498" y="490" font-size="11" fill="#6b6353">Day1 抵達／Day5 離開</text>
+    </svg>
+  </div>
+  <div class="legend">
+    <div class="item"><span class="swatch" style="background:#15315c;"></span> Day 1・5　機場 ↔ 大阪</div>
+    <div class="item"><span class="swatch dash" style="color:#2c7a7a;"></span> Day 2　大阪 ↔ 嵐山（京都）</div>
+    <div class="item"><span class="swatch dash" style="color:#c9772e;"></span> Day 3　大阪 ↔ 東山＋伏見稻荷（京都）</div>
+    <div class="item">虛線圓圈　Day 4　大阪城・四天王寺・住吉大社（市區內移動）</div>
+  </div>
+  <table>
+    <tr><th>Day</th><th>路線</th><th>交通方式</th><th>單程時間</th></tr>
+    <tr><td>Day 1</td><td>關西機場 → 難波</td><td>南海電鐵特急 Rapi:t</td><td>約 38～50 分</td></tr>
+    <tr><td>Day 2</td><td>難波 ↔ 嵐山</td><td>JR／阪急電鐵</td><td>約 45～55 分</td></tr>
+    <tr><td>Day 3</td><td>難波 ↔ 伏見稻荷／東山</td><td>JR奈良線／京阪電鐵</td><td>約 35～50 分</td></tr>
+    <tr><td>Day 4</td><td>大阪城 ↔ 四天王寺 ↔ 住吉大社</td><td>地下鐵／南海電鐵</td><td>各段約 15～25 分</td></tr>
+    <tr><td>Day 5</td><td>難波 → 關西機場</td><td>南海電鐵特急 Rapi:t</td><td>約 38～50 分</td></tr>
+  </table>
+  <div class="callout">整趟以大阪・難波為唯一基地，京都當天來回兩次，方向不會重疊（嵐山在西北、東山伏見稻荷在東北）。實際地理方位：關西機場在大阪灣南側海上，四天王寺、住吉大社在難波南方。</div>
+  </div>
+
+  <h2 class="section-title">每日行程</h2>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 1　BR132 抵達大阪</span><span class="date-tag">7/25（六）</span></h3>
+    <div class="day-body">
+      <span class="tag">08:20 桃園起飛</span><span class="tag">12:10 抵達 KIX</span>
+      <ul>
+        <li>BR132 桃園 08:20 起飛，12:10 抵達關西機場（KIX），入境提領行李</li>
+        <li>南海電鐵前往難波站：特急 Rapi:t 約 38 分（¥1,560）或一般車約 44～50 分（¥930）</li>
+        <li>約 13:00～13:30 抵達難波，飯店 check-in、放行李休息</li>
+        <li>傍晚～晚上：道頓堀、心齋橋逛街，晚餐大阪燒／章魚燒</li>
+      </ul>
+      <div class="photo-grid">
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Dotonbori,+Osaka" target="_blank" rel="noopener"><img src="images/dotonbori.jpg" alt="道頓堀"><div class="cap">道頓堀<span class="pin">↗</span></div></a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 2　京都一日遊・嵐山</span><span class="date-tag">7/26（日）</span></h3>
+    <div class="day-body">
+      <span class="tag">竹林・自然景觀</span><span class="tag">全天</span>
+      <ul>
+        <li>JR／阪急電鐵前往嵐山（約 45～55 分）</li>
+        <li>渡月橋、嵐山竹林小徑，天龍寺庭園（門票約 ¥500，世界遺產）</li>
+        <li>可加碼：嵯峨野觀光小火車（約 ¥880）或保津川遊船（約 ¥4,100）</li>
+        <li>午餐嵐山周邊湯豆腐或抹茶甜點，傍晚返回大阪</li>
+      </ul>
+      <div class="photo-grid">
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove,+Kyoto" target="_blank" rel="noopener"><img src="images/arashiyama_bamboo.jpg" alt="嵐山竹林小徑"><div class="cap">嵐山竹林小徑<span class="pin">↗</span></div></a></div>
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Tenryu-ji,+Kyoto" target="_blank" rel="noopener"><img src="images/tenryuji.jpg" alt="天龍寺庭園"><div class="cap">天龍寺庭園<span class="pin">↗</span></div></a></div>
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Togetsukyo+Bridge,+Arashiyama,+Kyoto" target="_blank" rel="noopener"><img src="images/arashiyama_view.jpg" alt="嵐山溪谷・渡月橋一帶"><div class="cap">嵐山溪谷・渡月橋一帶<span class="pin">↗</span></div></a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 3　京都一日遊・伏見稻荷＋東山祇園</span><span class="date-tag">7/27（一）</span></h3>
+    <div class="day-body">
+      <span class="tag">神社・古寺</span><span class="tag">全天</span>
+      <ul>
+        <li>上午：伏見稻荷大社（免費參觀，千本鳥居，建議早上去人較少）</li>
+        <li>移動至東山：清水寺（門票約 ¥500）、二年坂三年坂老街</li>
+        <li>午餐老街小店；下午八坂神社、祇園花見小路散策</li>
+        <li>晚餐祇園或鴨川周邊，或返回大阪後再用餐</li>
+      </ul>
+      <div class="photo-grid">
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha,+Kyoto" target="_blank" rel="noopener"><img src="images/fushimi_inari.jpg" alt="伏見稻荷千本鳥居"><div class="cap">伏見稻荷・千本鳥居<span class="pin">↗</span></div></a></div>
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera,+Kyoto" target="_blank" rel="noopener"><img src="images/kiyomizudera.jpg" alt="清水寺"><div class="cap">清水寺<span class="pin">↗</span></div></a></div>
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Gion,+Kyoto" target="_blank" rel="noopener"><img src="images/gion.jpg" alt="祇園花見小路"><div class="cap">祇園花見小路<span class="pin">↗</span></div></a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 4　大阪古城・寺社・河岸自然</span><span class="date-tag">7/28（二）</span></h3>
+    <div class="day-body">
+      <span class="tag">古城</span><span class="tag">日本最古老寺社</span><span class="tag">河岸自然</span>
+      <ul>
+        <li>上午：大阪城公園、天守閣（門票約 ¥600），順遊西之丸庭園（古城＋自然景觀）</li>
+        <li>沿河岸步行或搭車到中之島公園，欣賞大阪市役所、中央公會堂等歷史建築與河岸綠地</li>
+        <li>午餐：北浜或中之島周邊</li>
+        <li>下午：四天王寺（日本最古老官寺之一，創建於 593 年，門票約 ¥300）</li>
+        <li>接著住吉大社（日本三大古社之一，知名太鼓橋，免費參觀）</li>
+        <li>傍晚搭南海電鐵返回難波，晚餐道頓堀周邊</li>
+      </ul>
+      <div class="photo-grid">
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Osaka+Castle" target="_blank" rel="noopener"><img src="images/osaka_castle.jpg" alt="大阪城"><div class="cap">大阪城<span class="pin">↗</span></div></a></div>
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Nakanoshima+Park,+Osaka" target="_blank" rel="noopener"><img src="images/nakanoshima_park.jpg" alt="中之島・大阪中央公會堂"><div class="cap">中之島・中央公會堂<span class="pin">↗</span></div></a></div>
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Shitennoji+Temple,+Osaka" target="_blank" rel="noopener"><img src="images/shitennoji.jpg" alt="四天王寺"><div class="cap">四天王寺<span class="pin">↗</span></div></a></div>
+        <div class="photo-item"><a href="https://www.google.com/maps/search/?api=1&query=Sumiyoshi+Taisha,+Osaka" target="_blank" rel="noopener"><img src="images/sumiyoshi_taisha.jpg" alt="住吉大社"><div class="cap">住吉大社<span class="pin">↗</span></div></a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <h3 class="day-title"><span>Day 5　大阪自由活動 → 關西機場 → BR129 回桃園</span><span class="date-tag">7/29（三）</span></h3>
+    <div class="day-body">
+      <span class="tag">白天時間充裕</span><span class="tag">18:30 KIX 起飛</span>
+      <ul>
+        <li>BR129 晚上 6:30 才起飛，上午到下午前段都還有時間</li>
+        <li>可安排最後採買（心齋橋、美國村）或補一個還沒去的景點</li>
+        <li>退房後南海電鐵難波站前往關西機場（約 38～50 分）</li>
+        <li>機場內逛免稅店、用餐；<strong>BR129 18:30 起飛</strong>，20:30 抵達桃園</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">機票（已確定）</h2>
+  <table>
+    <tr><th>航班</th><th>航空公司</th><th>區間</th><th>表定時間</th></tr>
+    <tr><td>BR132</td><td>長榮航空</td><td>桃園 → 關西機場</td><td>08:20 起飛 → 12:10 抵達</td></tr>
+    <tr><td>BR129</td><td>長榮航空</td><td>關西機場 → 桃園</td><td>18:30 起飛 → 20:30 抵達</td></tr>
+  </table>
+  <div class="callout"><strong>機票實付金額：2 人合計 NT$46,176（已確定）</strong>，平均每人 NT$23,088。過去紀錄平均延誤約 30～40 分，銜接行程建議抓寬鬆一點。</div>
+
+  <h2 class="section-title">住宿（已確定）</h2>
+  <table>
+    <tr><th>住宿</th><th>地址</th><th>交通</th><th>費用</th></tr>
+    <tr><td>FDS ZEAL（公寓式，含廚房洗衣機）</td><td>大阪市浪速区桜川2-9-23</td><td>步行約 5 分到櫻川站，阪神なんば線 1 站即達難波（約 2～3 分）</td><td><strong>2 人 4 晚合計 NT$7,189</strong></td></tr>
+  </table>
+  <div class="callout">Booking.com 評分 8.9／10（341 則評論）。距離難波站需 1 站電車＋站內步行轉乘南海電鐵月台（前往機場、住吉大社），建議多抓 5～10 分鐘。</div>
+
+  <h2 class="section-title">景點門票</h2>
+  <table>
+    <tr><th>景點</th><th>費用（日圓／人）</th><th>備註</th></tr>
+    <tr><td>大阪城天守閣</td><td>¥600</td><td>內部有電梯</td></tr>
+    <tr><td>嵐山天龍寺</td><td>¥500</td><td>世界遺產庭園</td></tr>
+    <tr><td>嵯峨野小火車（選擇性）</td><td>¥880</td><td>單程</td></tr>
+    <tr><td>清水寺</td><td>¥500</td><td>部分坡道石階</td></tr>
+    <tr><td>伏見稻荷大社</td><td>免費</td><td>千本鳥居</td></tr>
+    <tr><td>四天王寺</td><td>¥300</td><td>日本最古老官寺之一</td></tr>
+    <tr><td>住吉大社</td><td>免費</td><td>日本三大古社之一</td></tr>
+    <tr><td>中之島公園</td><td>免費</td><td>河岸歷史建築與綠地</td></tr>
+  </table>
+
+  <h2 class="section-title">費用總覽（2 人，5 天 4 夜，暑假旺季）</h2>
+  <table>
+    <tr><th>項目</th><th>金額（NT$，2 人合計）</th><th>說明</th></tr>
+    <tr><td>來回機票（BR132／BR129）</td><td><strong>46,176（已確定）</strong></td><td>平均每人 NT$23,088</td></tr>
+    <tr><td>住宿（FDS ZEAL，4 晚）</td><td><strong>7,189（已確定）</strong></td><td>公寓式住宿，含廚房洗衣機</td></tr>
+    <tr><td>城際＋市內交通</td><td>3,000～4,500</td><td>京都兩次來回＋大阪市內</td></tr>
+    <tr><td>景點門票</td><td>2,000～3,000</td><td>大阪城、四天王寺、清水寺、天龍寺等</td></tr>
+    <tr><td>餐飲</td><td>7,000～9,500</td><td>全程外食</td></tr>
+    <tr><td>網路＋保險（5天）</td><td>1,000～1,500</td><td>兩人合計</td></tr>
+    <tr><td>伴手禮預留</td><td>3,000～5,000</td><td>和菓子、藥妝等</td></tr>
+    <tr class="total-row"><td>總計（2 人）</td><td>約 69,400～76,900</td><td>平均每人 NT$34,700～38,450</td></tr>
+  </table>
+  <div class="callout">匯率以 <strong>1 日圓 ≈ NT$0.2</strong> 估算。台灣護照赴日 90 天內觀光免簽。</div>
+
+  <h2 class="section-title">行前準備清單</h2>
+  <div class="checklist">
+    <div class="group">
+      <h4>最優先（已完成）</h4>
+      <label><input type="checkbox" checked disabled>機票已確定（BR132／BR129，NT$46,176）</label>
+      <label><input type="checkbox" checked disabled>飯店已確定（FDS ZEAL，NT$7,189）</label>
+    </div>
+    <div class="group">
+      <h4>證件與財務</h4>
+      <label><input type="checkbox">護照效期 6 個月以上</label>
+      <label><input type="checkbox">護照影本＋大頭照備用</label>
+      <label><input type="checkbox">現金＋海外友善信用卡</label>
+    </div>
+    <div class="group">
+      <h4>通訊與設備</h4>
+      <label><input type="checkbox">出國前裝好 eSIM 並測試</label>
+      <label><input type="checkbox">行動電源</label>
+    </div>
+    <div class="group">
+      <h4>健康與保險</h4>
+      <label><input type="checkbox">投保旅遊平安險（5 天）</label>
+      <label><input type="checkbox">常備藥（腸胃藥、感冒藥、暈車藥）</label>
+      <label><input type="checkbox">防曬、遮陽帽、隨身小風扇（暑假悶熱）</label>
+    </div>
+    <div class="group">
+      <h4>其他票券</h4>
+      <label><input type="checkbox">大阪周遊卡（視行程決定要不要買）</label>
+    </div>
+    <div class="group">
+      <h4>行李與衣物</h4>
+      <label><input type="checkbox">夏季輕薄衣物＋一件薄外套</label>
+      <label><input type="checkbox">好走的鞋（京都、四天王寺、住吉大社步行量較大）</label>
+      <label><input type="checkbox">隨身小包（證件／藥品）</label>
+    </div>
+  </div>
+
+  <h2 class="section-title">行程提醒</h2>
+  <div class="grid-2">
+    <div class="col callout">京都兩天、Day4 大阪古城寺社都有一定步行量，伏見稻荷、清水寺周邊有坡道石階，可隨時找店家坐下休息。</div>
+    <div class="col callout">七、八月日本悶熱，戶外行程盡量安排上午或傍晚，正午改室內活動。</div>
+    <div class="col callout">全程住同一家大阪飯店（FDS ZEAL），不需要每天打包退房；飯店到難波站只要 1 站電車，站內轉乘南海電鐵月台建議多抓 5～10 分鐘。</div>
+    <div class="col callout">BR129 表定 18:30 起飛，過去紀錄平均延誤約 30～40 分，下午行程不用排太緊，但抓 16:00 前抵達機場最保險。</div>
+  </div>
+
+  <div class="photo-credit">點擊景點照片可直接開啟該地點的 Google 地圖頁面　｜　景點照片來源：Wikimedia Commons（公開授權，僅供個人行程規劃參考）</div>
+  <div class="footer-page">LifeOS Travel Handbook ｜ 大阪・京都 五天四夜（含路線地圖・景點實景照片） ｜ 2026/7/25 - 7/29　航班：BR132／BR129</div>
+</div>
+
+</body>
+</html>
