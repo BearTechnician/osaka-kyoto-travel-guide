@@ -5,9 +5,13 @@
 
 ---
 
-## Day 1｜關西機場 → FDS ZEAL（飯店）
+## Day 1｜關西機場 → FDS ZEAL（飯店，寄放行李）→ 大阪天満宮（天神祭本宮）
 
-[關西機場 → FDS ZEAL（大眾運輸）](https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=FDS+ZEAL,+2-9-23+Sakuragawa,+Naniwa+Ward,+Osaka&travelmode=transit)
+- [關西機場 → FDS ZEAL（大眾運輸）](https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=FDS+ZEAL,+2-9-23+Sakuragawa,+Naniwa+Ward,+Osaka&travelmode=transit)
+- [FDS ZEAL → 大阪天満宮](https://www.google.com/maps/dir/?api=1&origin=FDS+ZEAL,+2-9-23+Sakuragawa,+Naniwa+Ward,+Osaka&destination=Osaka+Tenmangu+Shrine&travelmode=transit)
+- [大阪天満宮 → FDS ZEAL（回程，散場人潮多，實際班次以 App 當下為準）](https://www.google.com/maps/dir/?api=1&origin=Osaka+Tenmangu+Shrine&destination=FDS+ZEAL,+2-9-23+Sakuragawa,+Naniwa+Ward,+Osaka&travelmode=transit)
+
+> ⚠️ 飯店正式 check-in 是 **16:00**，中午到飯店時間有限，只能先寄放行李，正式辦理入住要等晚上看完天神祭回來後（約 22:00）。
 
 ---
 
@@ -53,6 +57,8 @@
 - [心齋橋](https://www.google.com/maps/search/?api=1&query=Shinsaibashi,+Osaka)
 - [黑門市場](https://www.google.com/maps/search/?api=1&query=Kuromon+Ichiba+Market,+Osaka)
 - [唐吉訶德道頓堀店](https://www.google.com/maps/search/?api=1&query=Don+Quijote+Dotonbori+Osaka)
+- [大阪天満宮](https://www.google.com/maps/search/?api=1&query=Osaka+Tenmangu+Shrine)
+- [桜之宮公園（天神祭花火觀賞點）](https://www.google.com/maps/search/?api=1&query=Sakuranomiya+Park,+Osaka)
 - [伏見稻荷大社](https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha,+Kyoto)
 - [清水寺](https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera,+Kyoto)
 - [嵐山竹林小徑](https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove,+Kyoto)
