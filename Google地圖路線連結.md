@@ -9,6 +9,8 @@
 
 [關西機場 → FDS ZEAL（大眾運輸）](https://www.google.com/maps/dir/?api=1&origin=Kansai+International+Airport&destination=FDS+ZEAL,+2-9-23+Sakuragawa,+Naniwa+Ward,+Osaka&travelmode=transit)
 
+> ⚠️ FDS ZEAL 是自助 check-in，正式入住從 **16:00** 才開始，中午抵達難波後沒地方先放行李，建議直接用難波駅內的投幣置物櫃或クロネコヤマト行李寄放櫃檯，輕裝去逛，晚上回程再取回行李、去飯店自助 check-in。
+
 ---
 
 ## Day 2｜京都一日遊・嵐山（FDS ZEAL ↔ 嵐山）
