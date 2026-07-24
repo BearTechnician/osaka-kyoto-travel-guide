@@ -36,9 +36,10 @@
 
 ---
 
-## Day 5｜FDS ZEAL → 關西機場
+## Day 5｜FDS ZEAL → 唐吉訶德道頓堀店 → 關西機場
 
-[FDS ZEAL → 關西機場（大眾運輸）](https://www.google.com/maps/dir/?api=1&origin=FDS+ZEAL,+2-9-23+Sakuragawa,+Naniwa+Ward,+Osaka&destination=Kansai+International+Airport&travelmode=transit)
+- [FDS ZEAL → 唐吉訶德（ドン・キホーテ）道頓堀店](https://www.google.com/maps/dir/?api=1&origin=FDS+ZEAL,+2-9-23+Sakuragawa,+Naniwa+Ward,+Osaka&destination=Don+Quijote+Dotonbori+Osaka&travelmode=transit)
+- [唐吉訶德道頓堀店 → 關西機場（大眾運輸）](https://www.google.com/maps/dir/?api=1&origin=Don+Quijote+Dotonbori+Osaka&destination=Kansai+International+Airport&travelmode=transit)
 
 ---
 
@@ -51,6 +52,7 @@
 - [道頓堀](https://www.google.com/maps/search/?api=1&query=Dotonbori,+Osaka)
 - [心齋橋](https://www.google.com/maps/search/?api=1&query=Shinsaibashi,+Osaka)
 - [黑門市場](https://www.google.com/maps/search/?api=1&query=Kuromon+Ichiba+Market,+Osaka)
+- [唐吉訶德道頓堀店](https://www.google.com/maps/search/?api=1&query=Don+Quijote+Dotonbori+Osaka)
 - [伏見稻荷大社](https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha,+Kyoto)
 - [清水寺](https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera,+Kyoto)
 - [嵐山竹林小徑](https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove,+Kyoto)
